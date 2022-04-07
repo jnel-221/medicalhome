@@ -88,18 +88,12 @@
                     >Home</a
                     >
                     <a class="nav-link" href="./views/providers.html">Providers</a>
-                    <a class="nav-link" href="../user/register.jsp">Sign Up</a>
+                    <a class="nav-link" href="../user/register">Create Account</a>
                     <a class="nav-link" href="./views/login.html">Log In</a>
                 </div>
             </div>
         </div>
     </nav>
 </section>
-<div class="hero-image">
-    <div class="hero-text">
-        <h1 style="font-size: 50px">I ARE HERO</h1>
-        <p>Big dang heroes</p>
-        <button style="background-color: #f46d25">Hire me</button>
-    </div>
-</div>
 <!-- end navbar -->
+

@@ -1,5 +1,14 @@
 <jsp:include page="include/header.jsp"/>
 <!-- home-page main content -->
+<%--Hero secton--%>
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size: 50px">I ARE HERO</h1>
+        <p>Big dang heroes</p>
+        <button style="background-color: #f46d25">Hire me</button>
+    </div>
+</div>
+<!-- end hero section-->
 <div class="container mx-auto mt-5">
     <div class="row">
         <div class="col-md-4">

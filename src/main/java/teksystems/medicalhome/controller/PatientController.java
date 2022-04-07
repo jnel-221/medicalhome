@@ -16,6 +16,7 @@ public class PatientController {
     private PatientDAO patientDAO;
 
     //create entry point for user registration page
+    //this url is what the browser will display
     @RequestMapping(value = "/user/register", method = RequestMethod.GET)
     public ModelAndView register() throws Exception{
         ModelAndView response = new ModelAndView();
