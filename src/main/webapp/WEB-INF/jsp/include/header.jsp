@@ -84,7 +84,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-auto">
-                    <a class="nav-link active" aria-current="page" href="index.html"
+                    <a class="nav-link active" aria-current="page" href="/index"
                     >Home</a
                     >
                     <a class="nav-link" href="./views/providers.html">Providers</a>
