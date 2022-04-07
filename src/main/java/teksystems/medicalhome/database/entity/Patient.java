@@ -37,6 +37,6 @@ public class Patient {
     @ToString.Exclude //exclude date from toString method
     @Column(name = "create_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate; 
+    private Date createDate;
 
 }
