@@ -88,7 +88,7 @@
                     >Home</a
                     >
                     <a class="nav-link" href="./views/providers.html">Providers</a>
-                    <a class="nav-link" href="./views/signup.html">Sign Up</a>
+                    <a class="nav-link" href="../user/register.jsp">Sign Up</a>
                     <a class="nav-link" href="./views/login.html">Log In</a>
                 </div>
             </div>

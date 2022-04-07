@@ -4,7 +4,7 @@
         <div class="col-sm-6 m-auto card-container">
             <div class="card" id="regCard">
                 <div class="card-body">
-                    <form id="regForm" class="m-5">
+                    <form id="regForm" class="m-5" action="/user/register">
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input
