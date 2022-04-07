@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="<C:url value="/webapp/pub/css/style.css"/>" type="text/css"/>
+    <link href="<c:url value="/pub/css/style.css"/>"  rel="stylesheet" type="text/css"/>
     <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -22,13 +23,14 @@
             src="https://kit.fontawesome.com/ae53138fc4.js"
             crossorigin="anonymous"
     ></script>
+
     <style>
         .hero-image {
             background-image: linear-gradient(
                     rgba(0, 0, 0, 0.5),
                     rgba(0, 0, 0, 0.5)
             ),
-            url("./images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
+            url("/pub/images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
             height: 50%;
             background-position: center;
             background-repeat: no-repeat;
