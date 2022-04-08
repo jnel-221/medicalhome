@@ -28,7 +28,19 @@
                             />
                             <p id="lastNameError"></p>
                         </div>
-
+                        <div class="mb-3">
+                            <p>Account Type</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="patient"
+                                       value="patient">
+                                <label class="form-check-label" for="patient">Patient</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="provider"
+                                       value="provider">
+                                <label class="form-check-label" for="provider">Provider</label>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input
@@ -39,13 +51,10 @@
                                     name="email"
                             />
                             <p id="emailError"></p>
-                            <!-- <div id="emailHelp" class="form-text">
-                              We'll never share your email with anyone else.
-                            </div> -->
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" />
+                            <input type="password" class="form-control" id="password" name="password"/>
                             <p id="passwordError"></p>
                         </div>
                         <div class="mb-3">
