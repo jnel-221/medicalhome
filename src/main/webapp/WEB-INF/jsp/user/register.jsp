@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+
 <jsp:include page="../include/header.jsp"/>
 <div class="bg">
     <div class="row">
@@ -41,6 +43,30 @@
                                 <label class="form-check-label" for="provider">Provider</label>
                             </div>
                         </div>
+
+                        <div class="mb-3 reveal-if-active">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Specialty</option>
+                                <option value="1">Obstetrics & Gynecology</option>
+                                <option value="2">Perinatal/Maternal & Fetal Medicine</option>
+                                <option value="3">Endocrinology, Diabetes & Metabolism</option>
+                                <option value="4">Dietary & Nutritional Service</option>
+                            </select>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Credential</option>
+                                <option value="1">MD/DO</option>
+                                <option value="2">NP</option>
+                                <option value="3">CNS</option>
+                                <option value="4">RD</option>
+                            </select>
+
+                        </div>
+
+<%--                        <div class="mb-3 reveal-if-active">--%>
+<%--                           --%>
+<%--                        </div>--%>
+
+
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input
