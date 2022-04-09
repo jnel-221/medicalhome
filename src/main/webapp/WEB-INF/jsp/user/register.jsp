@@ -7,7 +7,7 @@
             <div class="card" id="regCard">
                 <div class="card-body">
                     <h2 class="text-center mt-4">Create Account</h2>
-                    <form id="regForm" class="m-5" action="/user/register">
+                    <form id="regForm" class="m-5" action="/user/registerSumbit" method="post">
 
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
@@ -64,11 +64,6 @@
                                 <option value="4">RD</option>
                             </select>
                         </div>
-
-<%--                        <div class="mb-3 reveal-if-active">--%>
-<%--                           --%>
-<%--                        </div>--%>
-
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
