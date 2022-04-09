@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import teksystems.medicalhome.database.dao.PatientDAO;
+import teksystems.medicalhome.database.dao.UserDAO;
 
 @Slf4j
 @Controller
 public class IndexController {
     @Autowired
-    private PatientDAO patientDAO;
+    private UserDAO patientDAO;
 
     //serve homepage
     @RequestMapping(value = "/index", method = RequestMethod.GET)

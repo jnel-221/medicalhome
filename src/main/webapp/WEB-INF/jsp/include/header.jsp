@@ -35,7 +35,7 @@
     ></script>
     <%--External js file--%>
     <script src="<c:url value="/pub/script/register.js"/>" defer></script>
-    <%--Internal stylesheet for hero image--%>
+    <%--Internal stylesheet for hero-image on landing page--%>
     <style>
         .hero-image {
             background-image: linear-gradient(

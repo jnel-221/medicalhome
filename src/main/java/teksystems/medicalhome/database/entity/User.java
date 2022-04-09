@@ -13,12 +13,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "patient")
-public class Patient {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "patient_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "first_name")
@@ -30,12 +30,21 @@ public class Patient {
     @Column(name = "email")
     private String email;
 
-//    @Column(name = "pass") // may need to change this based on DB structure.
-//    private String password;
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "specialty")
+    private String specialty;
+
+    @Column(name = "credential")
+    private String credential;
+
+    @Column(name = "password") // may need to change this based on DB structure.
+    private String password;
 
     @EqualsAndHashCode.Exclude //exclude date from Equals and Hash methods
     @ToString.Exclude //exclude date from toString method
-    @Column(name = "created_date")
+    @Column(name = "create_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
 

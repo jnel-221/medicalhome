@@ -6,14 +6,16 @@
         <div class="col-sm-6 m-auto card-container">
             <div class="card" id="regCard">
                 <div class="card-body">
+                    <h2 class="text-center mt-4">Create Account</h2>
                     <form id="regForm" class="m-5" action="/user/register">
+
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input
                                     type="text"
                                     id="firstName"
                                     class="form-control"
-                                    placeholder="First Name"
+                                    placeholder=""
                                     name="firstName"
                             />
                             <p id="firstNameError"></p>
@@ -25,7 +27,7 @@
                                     type="text"
                                     id="lastName"
                                     class="form-control"
-                                    placeholder="Last Name"
+                                    placeholder=""
                                     name="lastName"
                             />
                             <p id="lastNameError"></p>
@@ -44,7 +46,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 reveal-if-active">
+                        <div class="mb-3 reveal-if-active" id="provider_reg_field1">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Specialty</option>
                                 <option value="1">Obstetrics & Gynecology</option>
@@ -52,6 +54,8 @@
                                 <option value="3">Endocrinology, Diabetes & Metabolism</option>
                                 <option value="4">Dietary & Nutritional Service</option>
                             </select>
+                        </div>
+                        <div class="mb-3 reveal-if-active" id="provider_reg_field2">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Select Credential</option>
                                 <option value="1">MD/DO</option>
@@ -59,7 +63,6 @@
                                 <option value="3">CNS</option>
                                 <option value="4">RD</option>
                             </select>
-
                         </div>
 
 <%--                        <div class="mb-3 reveal-if-active">--%>
