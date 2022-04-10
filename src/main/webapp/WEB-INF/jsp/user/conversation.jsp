@@ -1,5 +1,6 @@
-<jsp:include page="../include/header.jsp"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page="../include/header.jsp"/>
 <%--Hero secton--%>
 <div class="hero-image">
     <div class="hero-text">
@@ -8,6 +9,7 @@
         <form>
             <label for="subject" class="form-label">Subject</label>
             <input type="text" id="subject" class="form-control" placeholder="subject" name="subject" required/>
+
             <button style="background-color: #f46d25">Discuss with your care-team</button>
         </form>
     </div>

@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 @Setter
 @ToString
 public class RegisterFormBean {
-    //variables in bean match name field on forms
+    //variables in bean match name attribute on form tag
     private Integer id;
 
     //need to decide if I'll convert the JavaScript form validation to Spring form validation
