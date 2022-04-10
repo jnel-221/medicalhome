@@ -42,7 +42,7 @@ public class UserController {
     @RequestMapping(value = "/user/registerSubmit", method = RequestMethod.POST)
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception{
         ModelAndView response = new ModelAndView();
-
+        /* begin form validation logic */
         List<String> errorMessages = new ArrayList<>();
 
         if(bindingResult.hasErrors()){
@@ -56,7 +56,23 @@ public class UserController {
             response.setViewName("user/register");
             return response;
         }
+        /* end form validation logic*/
 
+
+        User user = userDAO.findById(form.getId());
+        if(user == null){
+            user = new User();
+        }
+
+        log.info(form.toString());
+        user.setFirstName(form.getFirstName());
+        user.setLastName(form.getLastName());
+        user.setEmail(form.getEmail());
+        user.setSpecialty(form.getSpecialty());
+        user.setCredential(form.getCredential());
+        user.setPassword(form.getPassword());
+
+        userDAO.save(user);
 
         //send form to model
         response.addObject("form",form);
