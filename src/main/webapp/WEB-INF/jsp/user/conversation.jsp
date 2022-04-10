@@ -4,11 +4,11 @@
 <%--Hero secton--%>
 <div class="hero-image">
     <div class="hero-text">
-        <h1 style="font-size: 50px">What's on your mind?</h1>
+        <h1 style="font-size: 50px" class="mt-5">What's on your mind?</h1>
         <p>Our team is here to help you. Let us know what you'd like to discuss</p>
-        <form>
+        <form action="/user/conversationSubmit" method="post">
             <label for="subject" class="form-label">Subject</label>
-            <input type="text" id="subject" class="form-control" placeholder="subject" name="subject" required/>
+            <input type="text" id="subject" class="form-control" placeholder="subject" name="subject"/>
 
             <button style="background-color: #f46d25">Discuss with your care-team</button>
         </form>
