@@ -42,6 +42,7 @@ public class UserController {
     @RequestMapping(value = "/user/registerSubmit", method = RequestMethod.POST)
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception{
         ModelAndView response = new ModelAndView();
+
         /* begin form validation logic */
         List<String> errorMessages = new ArrayList<>();
 
@@ -58,12 +59,13 @@ public class UserController {
         }
         /* end form validation logic*/
 
-
+        //create instance of User class,
         User user = userDAO.findById(form.getId());
         if(user == null){
             user = new User();
         }
 
+        //set attributes of user instance with form values
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
@@ -71,7 +73,7 @@ public class UserController {
         user.setCredential(form.getCredential());
         user.setPassword(form.getPassword());
 
-        //persist changes to user instance
+        //persist updated user instance
         userDAO.save(user);
 
         //send form to model
