@@ -100,7 +100,9 @@
                                     id="confirmPass"
                                     name="confirmPass"
                             />
-                            <p id="confirmPassError"></p>
+                            <c:forEach items="${bindingResult.getFieldErrors('confirmPass')}" var="error">
+                            <p id="confirmPassError" class="errorText">${error.getDefaultMessage()}</p>
+                            </c:forEach>
                         </div>
                         <div style="text-align: center;">
                             <button type="submit" class="btn" id="sButton">
