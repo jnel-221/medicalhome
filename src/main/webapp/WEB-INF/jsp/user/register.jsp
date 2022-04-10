@@ -51,18 +51,20 @@
                         </div>
                         <%--reveal-if-active (add class back after testing complete)--%>
                         <div class="mb-3" id="provider_reg_field1">
-                            <select class="form-select" aria-label="Default select example" name="specialty">
-                                <option selected>Select Specialty</option>
-                                <option value="OB/GYN">Obstetrics & Gynecology</option>
-                                <option value="Perinatal">Perinatal/Maternal & Fetal Medicine</option>
-                                <option value="Endocrine">Endocrinology, Diabetes & Metabolism</option>
-                                <option value="Nutrition">Dietary & Nutritional Service</option>
+                            <label class="form-check-label" for="specialty">Specialty</label>
+                            <select class="form-select" aria-label="Default select example" name="specialty" id="specialty">
+                                <option selected></option>
+                                <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>
+                                <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>
+                                <option value="Endocrinology, Diabetes & Metabolism">Endocrinology, Diabetes & Metabolism</option>
+                                <option value="Dietary & Nutritional Service">Dietary & Nutritional Service</option>
                             </select>
                         </div>
                         <%--reveal-if-active (add class back after testing complete)--%>
                         <div class="mb-3 " id="provider_reg_field2">
-                            <select class="form-select" aria-label="Default select example" name="credential">
-                                <option selected>Select Credential</option>
+                            <label class="form-check-label" for="credential">Credential</label>
+                            <select class="form-select" aria-label="Default select example" name="credential" id="credential">
+                                <option selected></option>
                                 <option value="MD/DO">MD/DO</option>
                                 <option value="NP">NP</option>
                                 <option value="CNS">CNS</option>
