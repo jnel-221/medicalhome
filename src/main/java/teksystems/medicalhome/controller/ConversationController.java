@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.ConversationDAO;
+import teksystems.medicalhome.database.entity.Conversation;
 import teksystems.medicalhome.formbean.ConversationFormBean;
 
 import javax.validation.Valid;
@@ -56,7 +57,24 @@ public class ConversationController {
            response.setViewName("user/conversation");
            return response;
        }
+        /*end form validation*/
 
+       //create new instance of Conversation class
+       Conversation conversation = conversationDAO.findById(form.getId());
+       if(conversation == null){
+           conversation = new Conversation();
+       }
+
+       //set attribute of conversation instance with form value
+       conversation.setSubject(form.getSubject());
+
+       //persist updated conversation instance
+       conversationDAO.save(conversation);
+
+
+       //send form to model
+       response.addObject("form", form);
+       response.setViewName("user/conversation");
        return response;
    }
 
