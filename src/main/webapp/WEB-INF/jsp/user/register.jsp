@@ -7,8 +7,8 @@
             <div class="card" id="regCard">
                 <div class="card-body">
                     <h2 class="text-center mt-4">Create Account</h2>
-                    <form id="regForm" class="m-5" action="/user/registerSumbit" method="post">
-
+                    <form id="regForm" class="m-5" action="/user/registerSubmit" method="post">
+                        <input type="hidden" name="id" value="${form.id}">
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input
@@ -45,23 +45,24 @@
                                 <label class="form-check-label" for="provider">Provider</label>
                             </div>
                         </div>
-
-                        <div class="mb-3 reveal-if-active" id="provider_reg_field1">
-                            <select class="form-select" aria-label="Default select example">
+                        <%--reveal-if-active (add class back after testing complete)--%>
+                        <div class="mb-3" id="provider_reg_field1">
+                            <select class="form-select" aria-label="Default select example" name="specialty">
                                 <option selected>Select Specialty</option>
-                                <option value="1">Obstetrics & Gynecology</option>
-                                <option value="2">Perinatal/Maternal & Fetal Medicine</option>
-                                <option value="3">Endocrinology, Diabetes & Metabolism</option>
-                                <option value="4">Dietary & Nutritional Service</option>
+                                <option value="OB/GYN">Obstetrics & Gynecology</option>
+                                <option value="Perinatal">Perinatal/Maternal & Fetal Medicine</option>
+                                <option value="Endocrine">Endocrinology, Diabetes & Metabolism</option>
+                                <option value="Nutrition">Dietary & Nutritional Service</option>
                             </select>
                         </div>
-                        <div class="mb-3 reveal-if-active" id="provider_reg_field2">
-                            <select class="form-select" aria-label="Default select example">
+                        <%--reveal-if-active (add class back after testing complete)--%>
+                        <div class="mb-3 " id="provider_reg_field2">
+                            <select class="form-select" aria-label="Default select example" name="credential">
                                 <option selected>Select Credential</option>
-                                <option value="1">MD/DO</option>
-                                <option value="2">NP</option>
-                                <option value="3">CNS</option>
-                                <option value="4">RD</option>
+                                <option value="MD/DO">MD/DO</option>
+                                <option value="NP">NP</option>
+                                <option value="CNS">CNS</option>
+                                <option value="RD">RD</option>
                             </select>
                         </div>
 

@@ -33,8 +33,8 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"
     ></script>
-    <%--External js file--%>
-    <script src="<c:url value="/pub/script/register.js"/>" defer></script>
+    <%--External js file, commented out for usercontroller method-testing--%>
+<%--    <script src="<c:url value="/pub/script/register.js"/>" defer></script>--%>
     <%--Internal stylesheet for hero-image on landing page--%>
     <style>
         .hero-image {
