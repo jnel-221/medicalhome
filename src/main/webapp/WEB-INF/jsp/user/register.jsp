@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../include/header.jsp"/>
 <div class="bg">
@@ -18,7 +18,9 @@
                                     placeholder=""
                                     name="firstName"
                             />
-                            <p id="firstNameError"></p>
+                            <c:forEach items="${bindingResult.getFieldErrors('firstName')}" var="error">
+                            <p id="firstNameError" class="errorText">${error.getDefaultMessage()}</p>
+                            </c:forEach>
                         </div>
 
                         <div class="mb-3">
@@ -30,7 +32,9 @@
                                     placeholder=""
                                     name="lastName"
                             />
-                            <p id="lastNameError"></p>
+                            <c:forEach items="${bindingResult.getFieldErrors('lastName')}" var="error">
+                            <p id="lastNameError" class="errorText">${error.getDefaultMessage()}</p>
+                            </c:forEach>
                         </div>
                         <div class="mb-3">
                             <p>Account Type</p>
@@ -75,12 +79,16 @@
                                     aria-describedby="emailHelp"
                                     name="email"
                             />
-                            <p id="emailError"></p>
+                            <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+                            <p id="emailError" class="errorText">${error.getDefaultMessage()}</p>
+                            </c:forEach>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password"/>
-                            <p id="passwordError"></p>
+                            <c:forEach items="${bindingResult.getFieldErrors('password')}" var="error">
+                            <p id="passwordError" class="errorText">${error.getDefaultMessage()}</p>
+                            </c:forEach>
                         </div>
                         <div class="mb-3">
                             <label for="confirmPass" class="form-label"

@@ -47,8 +47,14 @@ public class UserController {
 
         if(bindingResult.hasErrors()){
             for(ObjectError error : bindingResult.getAllErrors()){
+                errorMessages.add(error.getDefaultMessage());
                 log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
             }
+            response.addObject("form",form);
+            response.addObject("bindingResult", bindingResult);
+
+            response.setViewName("user/register");
+            return response;
         }
 
 
