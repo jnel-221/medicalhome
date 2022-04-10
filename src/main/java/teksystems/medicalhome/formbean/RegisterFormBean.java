@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
+import teksystems.medicalhome.validation.EmailUnique;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -16,7 +17,7 @@ public class RegisterFormBean {
     private Integer id;
 
     //need to decide if I'll convert the JavaScript form validation to Spring form validation
-
+    @EmailUnique(message = "An account with this email already exists.")
     @NotBlank(message = "Email is Required.")
     @Pattern(regexp="^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}",message="Email format is invalid.")
     private String email;

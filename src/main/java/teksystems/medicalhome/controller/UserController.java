@@ -48,7 +48,7 @@ public class UserController {
         if(bindingResult.hasErrors()){
             for(ObjectError error : bindingResult.getAllErrors()){
                 errorMessages.add(error.getDefaultMessage());
-                log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+               // log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
             }
             response.addObject("form",form);
             response.addObject("bindingResult", bindingResult);
@@ -64,7 +64,6 @@ public class UserController {
             user = new User();
         }
 
-        log.info(form.toString());
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
@@ -72,6 +71,7 @@ public class UserController {
         user.setCredential(form.getCredential());
         user.setPassword(form.getPassword());
 
+        //persist changes to user instance
         userDAO.save(user);
 
         //send form to model

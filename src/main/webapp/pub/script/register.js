@@ -7,7 +7,7 @@ let inputConfirmPass = $("#confirmPass");
 let sButton = $("sButton");
 
 //event listener to remove hidden class after provider radio input checked
-$("#provider").click(function(e){
+$("#provider").click(function (e) {
     e.preventDefault();
     //alert("I've been clicked");
     $("#provider_reg_field1").removeClass("reveal-if-active");
@@ -15,7 +15,7 @@ $("#provider").click(function(e){
 });
 
 //event listener to add hidden class after patient radio input checked
-$("#patient").click(function(e){
+$("#patient").click(function (e) {
     e.preventDefault();
     //alert("I've been clicked");
     $("#provider_reg_field1").addClass("reveal-if-active");
@@ -23,31 +23,16 @@ $("#patient").click(function(e){
 });
 
 //event listener calls to validation functions, if form is valid, will alert field values and redirect to provider page.
-$("#sButton").click(function (e) {
-    e.preventDefault();
-
-    let firstName="";
-    let lastName="";
-    let email="";
-    let password ="";
-    let confirm ="";
-
-    if(validateFirstName()) firstName = inputFirstName.val();
-    if(validateLastName()) lastName = inputLastName.val();
-    if(validateEmail()) email = inputEmail.val();
-    if (validatePassword()) password = inputPass.val();
-    if(confirmPassword()) confirm = inputConfirmPass.val();
-
-    if(firstName != "" && lastName != "" && email != "" && password != "" && confirm != ""){
-        alert("First Name: " + firstName +
-            "; Last Name: " + lastName +
-            "; Email: " + email +
-            "; Password: " + password);
-
-        window.location.href = "providers.html";
-    }
-
-});
+// $("#sButton").click(function (e) {
+//     e.preventDefault();
+//
+//     validateFirstName();
+//     validateLastName();
+//     validateEmail();
+//     validatePassword();
+//     confirmPassword();
+//
+// });
 
 //validate first name
 function validateFirstName() {
@@ -131,7 +116,7 @@ function validateEmail() {
     return result;
 }
 
-function validatePassword(){
+function validatePassword() {
     let password = inputPass.val();
     let lower = /[a-z]/; //regex for lower case
     let upper = /[A-Z]/; //regex for upper case
@@ -139,31 +124,31 @@ function validatePassword(){
     let special = /[@$!%*#?&]/; //regex for special characters
     let result = true;
 
-    if(password == ""){
+    if (password == "") {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password cannot be blank.").addClass("errorText");
         result = false;
-    }else if (password.length < 8 || password.length > 20){
+    } else if (password.length < 8 || password.length > 20) {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password must be between 8-20 characters long").addClass("errorText");
         result = false;
-    } else if(!password.match(lower)){
+    } else if (!password.match(lower)) {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password must contain at least one lower-case letter").addClass("errorText");
         result = false;
-    }else if(!password.match(upper)){
+    } else if (!password.match(upper)) {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password must contain at least one upper-case letter").addClass("errorText");
         result = false;
-    }else if(!password.match(num)){
+    } else if (!password.match(num)) {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password must contain at least one number").addClass("errorText");
         result = false;
-    }else if(!password.match(special)){
+    } else if (!password.match(special)) {
         inputPass.addClass("inputError");
         $("#passwordError").html("Password must contain at least one special character (@$!%*#?&)").addClass("errorText");
         result = false;
-    } else{
+    } else {
         inputPass.removeClass("inputError");
         $("#passwordError").html("").removeClass("errorText");
         result = true;
@@ -172,22 +157,22 @@ function validatePassword(){
 }
 
 //confirm password
-function confirmPassword(){
+function confirmPassword() {
     let password = inputPass.val();
     let confirmPass = inputConfirmPass.val();
     let result = true;
 
-    if(confirmPass == ""){
+    if (confirmPass == "") {
         inputConfirmPass.addClass("inputError");
         $("#confirmPassError").html("Please confirm your password.").addClass("errorText");
         result = false;
-    }else if(password != confirmPass){
+    } else if (password != confirmPass) {
         inputConfirmPass.addClass("inputError");
         $("#confirmPassError").html("Passwords do not match.").addClass("errorText");
         result = false;
-    }else{
+    } else {
         inputConfirmPass.removeClass("inputError");
-        console.log(confirmPass+" "+password)
+        console.log(confirmPass + " " + password)
         $("#confirmPassError").html("").removeClass("errorText");
         result = true;
     }

@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <%--reveal-if-active (add class back after testing complete)--%>
-                        <div class="mb-3" id="provider_reg_field1">
+                        <div class="mb-3 reveal-if-active" id="provider_reg_field1">
                             <label class="form-check-label" for="specialty">Specialty</label>
                             <select class="form-select" aria-label="Default select example" name="specialty" id="specialty">
                                 <option selected></option>
@@ -61,7 +61,7 @@
                             </select>
                         </div>
                         <%--reveal-if-active (add class back after testing complete)--%>
-                        <div class="mb-3 " id="provider_reg_field2">
+                        <div class="mb-3 reveal-if-active" id="provider_reg_field2">
                             <label class="form-check-label" for="credential">Credential</label>
                             <select class="form-select" aria-label="Default select example" name="credential" id="credential">
                                 <option selected></option>

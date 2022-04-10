@@ -34,7 +34,7 @@
             crossorigin="anonymous"
     ></script>
     <%--External js file, commented out for usercontroller method-testing--%>
-<%--    <script src="<c:url value="/pub/script/register.js"/>" defer></script>--%>
+    <script src="<c:url value="/pub/script/register.js"/>" defer></script>
     <%--Internal stylesheet for hero-image on landing page--%>
     <style>
         .hero-image {
