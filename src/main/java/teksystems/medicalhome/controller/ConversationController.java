@@ -16,7 +16,7 @@ public class ConversationController {
     @Autowired //inject DAO class into controller class
     private ConversationDAO conversationDAO;
 
-    /*Provide entry point/route for conversation page*/
+    /*Entry point/route for conversation page*/
     @RequestMapping(value = "/user/conversation")
     public ModelAndView createConversation() throws Exception{
         ModelAndView response = new ModelAndView();
@@ -28,7 +28,7 @@ public class ConversationController {
         return response;
     }
 
-    
+
 
 
 

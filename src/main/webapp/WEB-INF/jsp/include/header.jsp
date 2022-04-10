@@ -100,6 +100,7 @@
                     >Home</a
                     >
                     <a class="nav-link" href="./views/providers.html">Providers</a>
+                    <a class="nav-link" href="../user/conversation">My Case</a>
                     <a class="nav-link" href="../user/register">Create Account</a>
                     <a class="nav-link" href="./views/login.html">Log In</a>
                 </div>
