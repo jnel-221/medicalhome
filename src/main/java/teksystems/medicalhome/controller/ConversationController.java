@@ -3,7 +3,6 @@ package teksystems.medicalhome.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -71,17 +70,10 @@ public class ConversationController {
        //persist updated conversation instance
        conversationDAO.save(conversation);
 
-
        //send form to model
        response.addObject("form", form);
        response.setViewName("user/conversation");
        return response;
    }
-
-
-
-
-
-
 
 }
