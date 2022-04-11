@@ -5,7 +5,7 @@
         <div class="col-sm-6 m-auto card-container">
             <div class="card" id="regCard">
                 <div class="card-body">
-                    <form id="regForm" class="m-5">
+                    <form id="regForm" class="m-5" action="/login/loginSubmit" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input
@@ -13,13 +13,13 @@
                                     class="form-control"
                                     id="email"
                                     aria-describedby="emailHelp"
-                                    name="email"
+                                    name="username"
                             />
                             <p id="emailError"></p>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" />
+                            <input type="password" class="form-control" id="password" name="password"/>
                             <p id="passwordError"></p>
                         </div>
                         <div style="text-align: center;">
