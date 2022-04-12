@@ -1,6 +1,7 @@
 package teksystems.medicalhome.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -89,8 +90,20 @@ public class UserController {
     public ModelAndView search(@RequestParam(required = false, name = "search") String search){
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
+        List<User> users = new ArrayList<>();
 
+        if(StringUtils.isBlank(search)){
+            response.addObject("users", users);
+        } else {
+            users = userDAO.findBySpecialty(search);
+            for(User u : users){
+                log.info(u.getFirstName());
+            }
 
+            response.addObject("users", users);
+        }
+
+        response.addObject("search", search);
         return response;
     }
 
