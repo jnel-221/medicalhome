@@ -84,5 +84,14 @@ public class UserController {
 
     }
 
+    //==================search for providers by specialty=====================================
+    @RequestMapping(value = "/user/search")
+    public ModelAndView search(@RequestParam(required = false, name = "search") String search){
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/search");
+
+
+        return response;
+    }
 
 }
