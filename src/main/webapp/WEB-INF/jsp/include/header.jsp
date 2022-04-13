@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,11 +101,23 @@
                     >Home</a
                     >
                     <a class="nav-link" href="./views/providers.html">Providers</a>
+
+                    <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="../user/search">Search</a>
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="../user/conversation">My Case</a>
+                    </sec:authorize>
+
                     <a class="nav-link" href="../user/register">Create Account</a>
-                    <a class="nav-link" href="./views/login.html">Log In</a>
+
+
+                    <a class="nav-link" href="/login/login">Log In</a>
+
+                    <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="/login/logout">Logout</a>
+                    </sec:authorize>
                 </div>
             </div>
         </div>
