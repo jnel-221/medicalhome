@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.UserDAO;
+import teksystems.medicalhome.database.dao.UserRoleDAO;
 import teksystems.medicalhome.database.entity.User;
+import teksystems.medicalhome.database.entity.UserRole;
 import teksystems.medicalhome.formbean.RegisterFormBean;
 
 import javax.validation.Valid;
@@ -27,6 +30,12 @@ public class UserController {
 
     @Autowired
     private UserDAO userDAO;
+
+    @Autowired
+    private UserRoleDAO userRoleDAO;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     /*provide entry point/route for user registration page*/
@@ -74,10 +83,21 @@ public class UserController {
         user.setEmail(form.getEmail());
         user.setSpecialty(form.getSpecialty());
         user.setCredential(form.getCredential());
-        user.setPassword(form.getPassword());
+
+        //encrypt password before setting
+        String password = passwordEncoder.encode(form.getPassword());
+        user.setPassword(password);
 
         //persist updated user instance
         userDAO.save(user);
+
+        //create and save the user role object
+        //can build logic around this once roles are defined in app: patient, provider, admin etc.
+        UserRole userRole = new UserRole();
+        userRole.setUserId(user.getId());
+        userRole.setUserRole("USER");
+
+        userRoleDAO.save(userRole);
 
         //send form to model
         response.addObject("form",form);
