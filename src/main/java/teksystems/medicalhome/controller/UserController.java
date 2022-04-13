@@ -91,9 +91,10 @@ public class UserController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
         List<User> users = new ArrayList<>();
-
+        log.info("your click gets you one log inside the search method! Yay!");
         if(StringUtils.isBlank(search)){
             response.addObject("users", users);
+            log.info("search field blank");
         } else {
             users = userDAO.findBySpecialty(search);
             for(User u : users){
@@ -104,6 +105,7 @@ public class UserController {
         }
 
         response.addObject("search", search);
+
         return response;
     }
 
