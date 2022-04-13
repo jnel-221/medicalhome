@@ -3,9 +3,10 @@ package teksystems.medicalhome.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
+
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
+@PreAuthorize("hasAnyAuthority('USER','ADMIN')")
 public class UserController {
 
     @Autowired
@@ -86,6 +88,7 @@ public class UserController {
     }
 
     //==================search for providers by specialty=====================================
+   // @PreAuthorize("hasAuthority('ADMIN')")  can make this method available only to admins if needed w/ this annotation
     @RequestMapping(value = "/user/search")
     public ModelAndView search(@RequestParam(required = false, name = "search") String search){
         ModelAndView response = new ModelAndView();
