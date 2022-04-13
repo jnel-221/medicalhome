@@ -109,11 +109,12 @@
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="../user/conversation">My Case</a>
                     </sec:authorize>
-
+                    <sec:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="../user/register">Create Account</a>
-
-
+                    </sec:authorize>
+                    <sec:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="/login/login">Log In</a>
+                    </sec:authorize>
 
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="/login/logout">Logout</a>
