@@ -21,4 +21,11 @@ public class IndexController {
         response.setViewName("index");
         return response;
     }
+
+    @RequestMapping(value="/upload", method = RequestMethod.GET)
+    public ModelAndView upload() throws Exception{
+        ModelAndView response = new ModelAndView();
+        response.setViewName("upload");
+        return response;
+    }
 }

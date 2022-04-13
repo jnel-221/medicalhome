@@ -119,6 +119,7 @@
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="/login/logout">Logout</a>
                     </sec:authorize>
+                    <a class="nav-link" href="/upload">Upload</a>
                 </div>
             </div>
         </div>
