@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.UserDAO;
 
@@ -22,10 +24,20 @@ public class IndexController {
         return response;
     }
 
+    //serve upload form
     @RequestMapping(value="/upload", method = RequestMethod.GET)
     public ModelAndView upload() throws Exception{
         ModelAndView response = new ModelAndView();
         response.setViewName("upload");
+        return response;
+    }
+
+    //post method for upload form
+    @RequestMapping(value="/upload", method = RequestMethod.POST)
+    public ModelAndView uploadPost(@RequestParam("file") MultipartFile file) throws Exception{
+        ModelAndView response = new ModelAndView();
+        response.setViewName("upload");
+        log.info("uploaded file: "+file.getOriginalFilename()+ " size: " + file.getSize());
         return response;
     }
 }
