@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -20,6 +22,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserConversation> userConversations;
 
     @Column(name = "first_name")
     private String firstName;
@@ -39,7 +44,7 @@ public class User {
     @Column(name = "credential")
     private String credential;
 
-    @Column(name = "password") // may need to change this based on DB structure.
+    @Column(name = "password") 
     private String password;
 
     @EqualsAndHashCode.Exclude //exclude date from Equals and Hash methods

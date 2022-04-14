@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 
 @Getter
@@ -22,6 +23,9 @@ public class Conversation {
     @Column(name = "id")
     private Integer id;
 
+    @OneToMany(mappedBy = "conversation", fetch = FetchType.LAZY)
+    private Set<UserConversation> userConversations;
+
     @Column(name = "subject")
     private String subject;
 
@@ -30,4 +34,5 @@ public class Conversation {
     @Column(name = "create_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
+
 }
