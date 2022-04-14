@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 
@@ -23,8 +22,14 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<UserConversation> userConversations;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "message", fetch = FetchType.LAZY)
+    private Set<Message> messages;
+
 
     @Column(name = "first_name")
     private String firstName;
@@ -44,7 +49,7 @@ public class User {
     @Column(name = "credential")
     private String credential;
 
-    @Column(name = "password") 
+    @Column(name = "password")
     private String password;
 
     @EqualsAndHashCode.Exclude //exclude date from Equals and Hash methods
