@@ -12,7 +12,7 @@
             <c:forEach items="${bindingResult.getFieldErrors('subject')}" var="error">
             <p id="subjectError" class="errorText">${error.getDefaultMessage()}</p>
             </c:forEach>
-            <button style="background-color: #f46d25">Discuss with your care-team</button>
+            <button style="background-color: #f46d25">Ask a Provider</button>
         </form>
     </div>
 </div>
