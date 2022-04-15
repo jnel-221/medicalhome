@@ -106,7 +106,7 @@ public class LoginRegistrationController {
         //send form to model
         response.addObject("form",form);
 
-        response.setViewName("user/search");//purpose is to connect to the jsp page
+        response.setViewName("login/loginForm");//purpose is to connect to the jsp page
         return response;
 
     }

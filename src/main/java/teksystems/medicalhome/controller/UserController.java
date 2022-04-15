@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.dao.UserRoleDAO;
@@ -32,13 +30,11 @@ public class UserController {
     private UserDAO userDAO;
 
 
-
-
-
     //==================search for providers by specialty=====================================
    // @PreAuthorize("hasAuthority('ADMIN')")  can make this method available only to admins if needed w/ this annotation
-    @RequestMapping(value = "/user/search")
-    public ModelAndView search(@RequestParam(required = false, name = "search") String search){
+   @RequestMapping(value = "/user/search")
+   public ModelAndView search(@RequestParam(required = false, name = "search") String search){
+
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
         List<User> users = new ArrayList<>();

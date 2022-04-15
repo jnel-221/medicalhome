@@ -16,7 +16,7 @@ public class RegisterFormBean {
     //variables in bean match name attribute on form tag
     private Integer id;
 
-    //need to decide if I'll convert the JavaScript form validation to Spring form validation
+
     @EmailUnique(message = "An account with this email already exists.")
     @NotBlank(message = "Email is Required.")
     @Pattern(regexp="^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}",message="Email format is invalid.")

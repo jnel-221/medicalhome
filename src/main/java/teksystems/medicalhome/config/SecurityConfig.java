@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()//list of urls that will be un secured, anyone can access. Customize to your app
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/user/register", "/index").permitAll()//these are urls that do not require authentication(not logged in)
+                .antMatchers("/pub/**", "/error/**", "/login/**", "/user/register","/user/registerSubmit", "/index").permitAll()//these are urls that do not require authentication(not logged in)
                 .antMatchers("/admin/**", "/user/**").authenticated()//all admin functions should be in the admin folder; these are URLS that need authenticated
                 .and()
                 .formLogin()
