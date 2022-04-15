@@ -32,8 +32,9 @@ public class RegisterFormBean {
 
     private String credential;
 
-    @Length(min = 8 , max = 16, message = "Password must be between 8 and 16 characters.")
+
     @NotBlank(message = "Password is required.")
+    @Length(min = 8 , max = 16, message = "Password must be between 8 and 16 characters.")
     private String password;
 
     @NotBlank(message = "Confirm password is required.")

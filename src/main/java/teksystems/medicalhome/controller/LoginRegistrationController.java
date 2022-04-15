@@ -32,6 +32,7 @@ public class LoginRegistrationController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    //show login form
     @RequestMapping(value = "/login/login", method = RequestMethod.GET)
     public ModelAndView login() throws Exception{
         ModelAndView response = new ModelAndView();
@@ -90,7 +91,7 @@ public class LoginRegistrationController {
         String password = passwordEncoder.encode(form.getPassword());
         user.setPassword(password);
 
-        //persist updated user instance
+        //persist updated user instance; bug: new user not saved to DB when created outside of login.
         userDAO.save(user);
 
         //create and save the user role object
