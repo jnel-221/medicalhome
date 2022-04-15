@@ -80,6 +80,7 @@ public class LoginRegistrationController {
             user = new User();
         }
 
+
         //set attributes of user instance with form values
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
@@ -105,7 +106,7 @@ public class LoginRegistrationController {
         //send form to model
         response.addObject("form",form);
 
-        response.setViewName("user/register");//purpose is to connect to the jsp page
+        response.setViewName("user/search");//purpose is to connect to the jsp page
         return response;
 
     }

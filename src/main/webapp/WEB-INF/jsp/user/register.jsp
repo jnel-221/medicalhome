@@ -39,12 +39,12 @@
                         <div class="mb-3">
                             <p>Account Type</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="patient" id="patient"
+                                <input class="form-check-input" type="radio" name="radioName" id="patient"
                                        value="patient">
                                 <label class="form-check-label" for="patient">Patient</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="provider" id="provider"
+                                <input class="form-check-input" type="radio" name="radioName" id="provider"
                                        value="provider">
                                 <label class="form-check-label" for="provider">Provider</label>
                             </div>
