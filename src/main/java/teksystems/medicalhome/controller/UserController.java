@@ -16,6 +16,7 @@ import teksystems.medicalhome.database.dao.UserRoleDAO;
 import teksystems.medicalhome.database.entity.User;
 import teksystems.medicalhome.database.entity.UserRole;
 import teksystems.medicalhome.formbean.RegisterFormBean;
+import teksystems.medicalhome.formbean.SearchFormBean;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -33,17 +34,17 @@ public class UserController {
     //==================search for providers by specialty=====================================
    // @PreAuthorize("hasAuthority('ADMIN')")  can make this method available only to admins if needed w/ this annotation
    @RequestMapping(value = "/user/search", method = RequestMethod.GET)
-   public ModelAndView search(@RequestParam(required = false, name = "search") String search){
+   public ModelAndView search(SearchFormBean form){
         ModelAndView response = new ModelAndView();
-        response.setViewName("user/search");
+        response.setViewName("user/searchBySpecialty");
         List<User> users;
         log.info("your click gets you one log inside the search method! Yay!");
-        if(StringUtils.isBlank(search)){
+        if(StringUtils.isBlank(form.getSearch())){
             users = userDAO.findAll();
             response.addObject("users", users);
-            log.info("search field has: "+ search);
+            log.info("search field has: "+ form.getSearch());
         } else {
-            users = userDAO.findBySpecialty(search);
+            users = userDAO.findBySpecialty(form.getSearch());
             for(User u : users){
                 log.info(u.getFirstName());
             }
@@ -51,7 +52,9 @@ public class UserController {
             response.addObject("users", users);
         }
 
-        response.addObject("search", search);
+
+        response.addObject("form", form);
+
         response.setViewName("user/search");
         return response;
     }

@@ -13,7 +13,7 @@
 <%--    start search form--%>
     <div class="row">
         <div class="col-sm-10 m-auto">
-            <form action = "user/search" method="get">
+            <form action = "user/searchBySpecialty" method="get">
                 <div class="mb-3" id="provider_reg_field1">
                     <label class="form-check-label" for="specialty">Specialty</label>
                     <select class="form-select" aria-label="Default select example" name="search" id="specialty">
@@ -28,12 +28,6 @@
                     </button>
                 </div>
             </form>
-<%--                <form:select path="user/search" method="get">--%>
-<%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
-<%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
-<%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
-<%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
-<%--                </form:select>--%>
             <%--end search form --%>
             <%--start table--%>
             <table class="table" id="tbl-background">
