@@ -6,7 +6,9 @@ import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 import teksystems.medicalhome.validation.EmailUnique;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Getter
@@ -27,6 +29,9 @@ public class RegisterFormBean {
 
     @NotBlank(message = "Last name is required.")
     private String lastName;
+
+    @NotNull(message = "Please select account type.")
+    private String acctType;
 
     private String specialty;
 

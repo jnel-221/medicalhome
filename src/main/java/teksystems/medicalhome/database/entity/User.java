@@ -43,6 +43,9 @@ public class User {
     @Column(name = "img_url")
     private String imgUrl;
 
+    @Column(name = "acct_type")
+    private String acctType;
+
     @Column(name = "specialty")
     private String specialty;
 

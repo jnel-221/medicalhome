@@ -16,7 +16,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
     public List<User> findAll();
     public List<User> findBySpecialty(@Param("specialty") String specialty);
     public List<User> findByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
-
+    public List<User> findByAcctType(@Param("acctType") String acctType);
 
 
 }
