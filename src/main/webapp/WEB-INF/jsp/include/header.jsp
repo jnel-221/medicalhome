@@ -100,7 +100,7 @@
                     <a class="nav-link active" aria-current="page" href="/index"
                     >Home</a
                     >
-                    <a class="nav-link" href="./views/providers.html">Providers</a>
+                    <a class="nav-link" href="/ourProviders">Providers</a>
 
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="../user/search">Search</a>

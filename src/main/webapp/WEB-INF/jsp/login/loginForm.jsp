@@ -1,5 +1,5 @@
-
 <jsp:include page="../include/header.jsp"/>
+
 <div class="bg">
     <div class="row">
         <div class="col-sm-6 m-auto card-container">
