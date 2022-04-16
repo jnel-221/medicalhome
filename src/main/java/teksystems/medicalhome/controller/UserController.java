@@ -32,16 +32,16 @@ public class UserController {
 
     //==================search for providers by specialty=====================================
    // @PreAuthorize("hasAuthority('ADMIN')")  can make this method available only to admins if needed w/ this annotation
-   @RequestMapping(value = "/user/search")
+   @RequestMapping(value = "/user/search", method = RequestMethod.GET)
    public ModelAndView search(@RequestParam(required = false, name = "search") String search){
-
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
-        List<User> users = new ArrayList<>();
+        List<User> users;
         log.info("your click gets you one log inside the search method! Yay!");
         if(StringUtils.isBlank(search)){
+            users = userDAO.findAll();
             response.addObject("users", users);
-            log.info("search field blank");
+            log.info("search field has: "+ search);
         } else {
             users = userDAO.findBySpecialty(search);
             for(User u : users){
@@ -52,7 +52,7 @@ public class UserController {
         }
 
         response.addObject("search", search);
-
+        response.setViewName("user/search");
         return response;
     }
 

@@ -28,7 +28,7 @@
                     </button>
                 </div>
             </form>
-<%--                <form:select path="user/search">--%>
+<%--                <form:select path="user/search" method="get">--%>
 <%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
 <%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
 <%--                    <form:option value="Obstetrics & Gynecology" label="Obstetrics & Gynecology"/>--%>
