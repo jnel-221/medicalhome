@@ -26,7 +26,7 @@
                         <div style="text-align: center;">
                             <button type="submit" class="btn" id="sButton">Login</button>
                         </div>
-                        <p>Don't have an account? <a href="user/register">Create Account</a></p>
+                        <p>Don't have an account? <a href="/user/register">Create Account</a></p>
                     </form>
                 </div>
             </div>

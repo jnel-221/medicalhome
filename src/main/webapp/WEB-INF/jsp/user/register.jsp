@@ -10,7 +10,7 @@
                     <form id="regForm" class="m-5" action="/user/registerSubmit" method="post">
                         <input type="hidden" name="id" value="${form.id}">
                         <div class="mb-3">
-<%--                            <label for="firstName" class="form-label">First Name</label>--%>
+                            <label for="firstName" class="form-label">First Name</label>
                             <input
                                     type="text"
                                     id="firstName"

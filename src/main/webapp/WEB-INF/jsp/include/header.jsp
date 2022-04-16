@@ -109,9 +109,9 @@
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="../user/conversation">My Case</a>
                     </sec:authorize>
-<%--                    <sec:authorize access="!isAuthenticated()">--%>
+                    <sec:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="/user/register">Create Account</a>
-<%--                    </sec:authorize>--%>
+                    </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="/login/login">Log In</a>
                     </sec:authorize>
@@ -119,7 +119,9 @@
                     <sec:authorize access="isAuthenticated()">
                     <a class="nav-link" href="/login/logout">Logout</a>
                     </sec:authorize>
+                    <sec:authorize access="hasRole('ADMIN')">
                     <a class="nav-link" href="/upload">Upload</a>
+                    </sec:authorize>
                 </div>
             </div>
         </div>
