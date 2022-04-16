@@ -1,3 +1,4 @@
+<%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="include/header.jsp"/>
@@ -10,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-sm-10 m-auto">
-            <h1>Our Providers</h1>
+            <h1 class="text-center my-4">Our Providers</h1>
             <table class="table" id="tbl-background">
                 <thead>
                 <tr scope="row">
@@ -20,13 +21,13 @@
                 </tr>
                 </thead>
                 <tbody class="table_content">
-
+            <c:forEach var="user" items="${users}">
                 <tr scope="row">
-                    <td><img src="${photo}" alt="Dr.${firstN} ${lastN}"></td>
-                    <td>${firstN} ${lastN}</td>
-                    <td>${streetNumber} ${streetName}</td>
+                    <td><img class="ms-5" style="border-radius: 50%" src="${user.imgUrl}" alt="Dr.${user.firstName} ${user.lastName}"></td>
+                    <td>${user.firstName} ${user.lastName}</td>
+                    <td>${user.specialty}, ${user.credential}</td>
                 </tr>
-
+            </c:forEach>
                 </tbody>
             </table>
         </div>

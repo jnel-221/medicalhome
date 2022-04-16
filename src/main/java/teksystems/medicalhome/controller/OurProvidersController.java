@@ -22,9 +22,14 @@ public class OurProvidersController {
     public ModelAndView loadProviders() throws Exception{
         ModelAndView response = new ModelAndView();
         List<User> users = userDAO.findAll();
+        log.info("what did we get?" + users.toString());
+        for (User u: users
+             ) {
+            log.info(u.getFirstName()+" "+u.getLastName());
 
-        response.addObject("user", users);
+        }
         response.setViewName("ourProviders");
+        response.addObject("users", users);
         return response;
     }
 }
