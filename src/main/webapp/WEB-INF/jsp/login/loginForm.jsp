@@ -5,6 +5,7 @@
         <div class="col-sm-6 m-auto card-container">
             <div class="card" id="regCard">
                 <div class="card-body">
+                    <h2 class="text-center mt-4">Login</h2>
                     <form id="regForm" class="m-5" action="/login/loginSubmit" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
