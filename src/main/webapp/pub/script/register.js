@@ -8,7 +8,7 @@ let sButton = $("sButton");
 
 //event listener to remove hidden class after provider radio input checked
 $("#provider").click(function (e) {
-    e.preventDefault();
+   // e.preventDefault();
     //alert("I've been clicked");
     $("#provider_reg_field1").removeClass("reveal-if-active");
     $("#provider_reg_field2").removeClass("reveal-if-active");
@@ -16,7 +16,7 @@ $("#provider").click(function (e) {
 
 //event listener to add hidden class after patient radio input checked
 $("#patient").click(function (e) {
-    e.preventDefault();
+   // e.preventDefault();
     //alert("I've been clicked");
     $("#provider_reg_field1").addClass("reveal-if-active");
     $("#provider_reg_field2").addClass("reveal-if-active");

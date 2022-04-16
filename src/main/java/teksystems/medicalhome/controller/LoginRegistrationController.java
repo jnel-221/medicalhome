@@ -58,16 +58,6 @@ public class LoginRegistrationController {
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception{
         ModelAndView response = new ModelAndView();
 
-    log.info(form.getFirstName());
-    log.info(form.getLastName());
-    log.info(form.getAcctType());
-    log.info(form.getEmail());
-    log.info(form.getPassword());
-    log.info(form.getConfirmPass());
-
-
-
-
         /* begin form validation logic */
         List<String> errorMessages = new ArrayList<>();
 
@@ -94,6 +84,7 @@ public class LoginRegistrationController {
         //set attributes of user instance with form values
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
+        user.setAcctType(form.getAcctType());
         user.setEmail(form.getEmail());
         user.setSpecialty(form.getSpecialty());
         user.setCredential(form.getCredential());
