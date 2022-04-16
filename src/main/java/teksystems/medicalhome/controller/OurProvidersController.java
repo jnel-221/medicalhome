@@ -21,7 +21,7 @@ public class OurProvidersController {
     @RequestMapping(value="/ourProviders", method = RequestMethod.GET)
     public ModelAndView loadProviders() throws Exception{
         ModelAndView response = new ModelAndView();
-        List<User> users = userDAO.findAll();
+        List<User> users = userDAO.findByAcctType("provider");
 
         response.setViewName("ourProviders");
         response.addObject("users", users);
