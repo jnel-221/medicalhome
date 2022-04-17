@@ -2,7 +2,10 @@ package teksystems.medicalhome.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -14,6 +17,7 @@ import teksystems.medicalhome.database.dao.ConversationDAO;
 import teksystems.medicalhome.database.dao.UserConversationDAO;
 import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.entity.Conversation;
+import teksystems.medicalhome.database.entity.User;
 import teksystems.medicalhome.formbean.ConversationFormBean;
 
 import javax.validation.Valid;
@@ -39,10 +43,29 @@ public class ConversationController {
     public ModelAndView conversation() throws Exception{
         ModelAndView response = new ModelAndView();
         response.setViewName("user/conversation");
+        List<User> selectUsers = new ArrayList<>();
 
-        //seed model with empty form bean
+        //get logged-in user information
+        //need to pop this out into its own method so it can be utilized as needed w/o repeating
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userDAO.findByEmail(username);
+        log.info(user.toString());
+
+        String userAcct = user.getAcctType();
+        log.info(userAcct);
+        //load select menu with users based on users acctType
+        if(userAcct.equals("patient")){
+            selectUsers = userDAO.findByAcctType("provider");
+        }else{
+            selectUsers = userDAO.findAll();
+        }
+        log.info(selectUsers.toString());
+
+        //seed model with empty form bean, and dropdown w/user data
         ConversationFormBean form = new ConversationFormBean();
         response.addObject("form", form);
+        
         return response;
     }
 
@@ -51,6 +74,7 @@ public class ConversationController {
    @RequestMapping(value = "/user/conversationSubmit", method = RequestMethod.POST)
    public ModelAndView conversationSubmit(@Valid ConversationFormBean form, BindingResult bindingResult){
        ModelAndView response = new ModelAndView();
+
 
        /*Begin form validation logic*/
        List<String> errorMessages = new ArrayList<>();
@@ -79,8 +103,16 @@ public class ConversationController {
        //persist updated conversation instance
        conversationDAO.save(conversation);
 
+       //TO DO: set userConversation with userID & convID for each user selected (including logged in user).
+       //start with logged in user, need to figure out how pass group of users from front end to server/controller.
+       //loop over each user and log out userID and convID
+       //after successfull logging, persist each to DB
+
+
        //send form to model
        response.addObject("form", form);
+
+       //TO DO: re-route to message view after it's created
        response.setViewName("user/conversation");
        return response;
    }

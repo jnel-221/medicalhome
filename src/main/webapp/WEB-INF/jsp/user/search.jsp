@@ -16,7 +16,7 @@
             <form action = "user/searchBySpecialty" method="get">
                 <div class="mb-3" id="provider_reg_field1">
                     <label class="form-check-label" for="specialty">Specialty</label>
-                    <select class="form-select" aria-label="Default select example" name="search" id="specialty">
+                    <select class="form-select" aria-label="Default select example" name="specialty" id="specialty">
                         <option selected></option>
                         <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>
                         <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>
