@@ -4,22 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.UserDAO;
-import teksystems.medicalhome.database.dao.UserRoleDAO;
 import teksystems.medicalhome.database.entity.User;
-import teksystems.medicalhome.database.entity.UserRole;
-import teksystems.medicalhome.formbean.RegisterFormBean;
 import teksystems.medicalhome.formbean.SearchFormBean;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Slf4j
