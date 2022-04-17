@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.ConversationDAO;
+import teksystems.medicalhome.database.dao.UserConversationDAO;
+import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.entity.Conversation;
 import teksystems.medicalhome.formbean.ConversationFormBean;
 
@@ -22,8 +24,15 @@ import java.util.List;
 @Controller
 public class ConversationController {
 
-    @Autowired //inject DAO class into controller class
+    @Autowired
     private ConversationDAO conversationDAO;
+
+    @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
+    private UserConversationDAO userConversationDAO;
+
 
     /*Entry point/route for conversation page*/
     @RequestMapping(value = "/user/conversation")
