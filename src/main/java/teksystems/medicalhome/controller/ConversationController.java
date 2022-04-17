@@ -43,38 +43,36 @@ public class ConversationController {
     public ModelAndView conversation() throws Exception{
         ModelAndView response = new ModelAndView();
         response.setViewName("user/conversation");
-        List<User> usersMenu = new ArrayList<>();
+        List<User> usersMenu;
 
-        //get logged-in user information
+        //get logged-in user information, to pull account-type from logged-in user
         //need to pop this out into its own method so it can be utilized as needed w/o repeating
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userDAO.findByEmail(username);
-        log.info(user.toString());
-
         String userAcct = user.getAcctType();
-        log.info(userAcct);
-        //load select menu with users based on users acctType
+
+        //load select menu based on users acctType, if patient load only providers, if provider, load all users.
         if(userAcct.equals("patient")){
             usersMenu = userDAO.findByAcctType("provider");
         }else{
             usersMenu = userDAO.findAll();
         }
-        log.info(usersMenu.toString());
 
-        //seed model with empty form bean, and dropdown w/user data
+        /*seed model with empty form bean, users data for dropdown menu,
+         & logged-in user id for userId field */
         ConversationFormBean form = new ConversationFormBean();
         response.addObject("form", form);
         response.addObject("usersMenu", usersMenu);
+        response.addObject("user",user);
+        response.setViewName("user/conversation");
         return response;
     }
 
     /*create new conversation when user submits form*/
-
    @RequestMapping(value = "/user/conversationSubmit", method = RequestMethod.POST)
    public ModelAndView conversationSubmit(@Valid ConversationFormBean form, BindingResult bindingResult){
        ModelAndView response = new ModelAndView();
-
 
        /*Begin form validation logic*/
        List<String> errorMessages = new ArrayList<>();
@@ -85,6 +83,8 @@ public class ConversationController {
            }
            response.addObject("form",form);
            response.addObject("bindingResult", bindingResult);
+
+
 
            response.setViewName("user/conversation");
            return response;
@@ -97,12 +97,10 @@ public class ConversationController {
            conversation = new Conversation();
        }
 
-       //set attribute of conversation instance with form value
        conversation.setSubject(form.getSubject());
-
-       //persist updated conversation instance
        conversationDAO.save(conversation);
 
+       //can't do this here, as convID won't exist until after this method executes.
        //TO DO: set userConversation with userID & convID for each user selected (including logged in user).
        //start with logged in user, need to figure out how pass group of users from front end to server/controller.
        //loop over each user and log out userID and convID

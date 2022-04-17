@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h2 class="text-center mt-4">New Conversation</h2>
                     <form action="/user/conversationSubmit" method="post">
-                        <input type="hidden" name="id" value="${form.id}">
+                        <input type="hidden" name="id" value="${user.id}">
                         <div class="mb-3">
                             <label for="subject" class="form-label">Subject</label>
                             <input type="text" id="subject" class="form-control" placeholder="subject" name="subject"/>
@@ -24,16 +24,7 @@
                                 <p id="subjectError" class="errorText">${error.getDefaultMessage()}</p>
                             </c:forEach>
                         </div>
-<%--                        <div class="mb-3">--%>
-<%--                            <label class="form-check-label" for="specialty">Specialty</label>--%>
-<%--                            <select class="form-select" aria-label="Default select example" name="specialty" id="specialty" multiple>--%>
-<%--                                <option selected></option>--%>
-<%--                                <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>--%>
-<%--                                <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>--%>
-<%--                                <option value="Endocrinology, Diabetes & Metabolism">Endocrinology, Diabetes & Metabolism</option>--%>
-<%--                                <option value="Dietary & Nutritional Service">Dietary & Nutritional Service</option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
+
                         <div class="mb-3">
                             <label class="form-check-label" for="specialty">Specialty</label>
                             <select class="form-select" aria-label="Default select example" name="userId" id="specialty" multiple>
@@ -43,19 +34,7 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input
-                                    type="text"
-                                    id="lastName"
-                                    class="form-control"
-                                    placeholder=""
-                                    name="lastName"
-                            />
-                            <c:forEach items="${bindingResult.getFieldErrors('lastName')}" var="error">
-                                <p id="lastNameError" class="errorText">${error.getDefaultMessage()}</p>
-                            </c:forEach>
-                        </div>
+
                         <div style="text-align: center;">
                             <button type="submit" class="btn" id="sButton">
                                 Create Account
