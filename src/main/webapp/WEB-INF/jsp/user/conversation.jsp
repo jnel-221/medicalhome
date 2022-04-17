@@ -24,14 +24,23 @@
                                 <p id="subjectError" class="errorText">${error.getDefaultMessage()}</p>
                             </c:forEach>
                         </div>
+<%--                        <div class="mb-3">--%>
+<%--                            <label class="form-check-label" for="specialty">Specialty</label>--%>
+<%--                            <select class="form-select" aria-label="Default select example" name="specialty" id="specialty" multiple>--%>
+<%--                                <option selected></option>--%>
+<%--                                <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>--%>
+<%--                                <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>--%>
+<%--                                <option value="Endocrinology, Diabetes & Metabolism">Endocrinology, Diabetes & Metabolism</option>--%>
+<%--                                <option value="Dietary & Nutritional Service">Dietary & Nutritional Service</option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
                         <div class="mb-3">
                             <label class="form-check-label" for="specialty">Specialty</label>
-                            <select class="form-select" aria-label="Default select example" name="specialty" id="specialty" multiple>
+                            <select class="form-select" aria-label="Default select example" name="userId" id="specialty" multiple>
                                 <option selected></option>
-                                <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>
-                                <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>
-                                <option value="Endocrinology, Diabetes & Metabolism">Endocrinology, Diabetes & Metabolism</option>
-                                <option value="Dietary & Nutritional Service">Dietary & Nutritional Service</option>
+                                <c:forEach items="${usersMenu}" var="user">
+                                <option value="${user.id}" data-name="${user.firstName}">${user.firstName} ${user.lastName},  ${user.specialty} </option>
+                                </c:forEach>
                             </select>
                         </div>
                         <div class="mb-3">

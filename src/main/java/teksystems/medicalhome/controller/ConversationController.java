@@ -43,7 +43,7 @@ public class ConversationController {
     public ModelAndView conversation() throws Exception{
         ModelAndView response = new ModelAndView();
         response.setViewName("user/conversation");
-        List<User> selectUsers = new ArrayList<>();
+        List<User> usersMenu = new ArrayList<>();
 
         //get logged-in user information
         //need to pop this out into its own method so it can be utilized as needed w/o repeating
@@ -56,16 +56,16 @@ public class ConversationController {
         log.info(userAcct);
         //load select menu with users based on users acctType
         if(userAcct.equals("patient")){
-            selectUsers = userDAO.findByAcctType("provider");
+            usersMenu = userDAO.findByAcctType("provider");
         }else{
-            selectUsers = userDAO.findAll();
+            usersMenu = userDAO.findAll();
         }
-        log.info(selectUsers.toString());
+        log.info(usersMenu.toString());
 
         //seed model with empty form bean, and dropdown w/user data
         ConversationFormBean form = new ConversationFormBean();
         response.addObject("form", form);
-        
+        response.addObject("usersMenu", usersMenu);
         return response;
     }
 
