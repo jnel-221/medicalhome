@@ -18,6 +18,7 @@ import teksystems.medicalhome.database.dao.UserConversationDAO;
 import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.entity.Conversation;
 import teksystems.medicalhome.database.entity.User;
+import teksystems.medicalhome.database.entity.UserConversation;
 import teksystems.medicalhome.formbean.ConversationFormBean;
 
 import javax.validation.Valid;
@@ -73,6 +74,10 @@ public class ConversationController {
    @RequestMapping(value = "/user/conversationSubmit", method = RequestMethod.POST)
    public ModelAndView conversationSubmit(@Valid ConversationFormBean form, BindingResult bindingResult){
        ModelAndView response = new ModelAndView();
+        //get logged-in user info
+       Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       String username = authentication.getName();
+       User user = userDAO.findByEmail(username);
 
        /*Begin form validation logic*/
        List<String> errorMessages = new ArrayList<>();
@@ -100,9 +105,18 @@ public class ConversationController {
        conversation.setSubject(form.getSubject());
        conversationDAO.save(conversation);
 
-       //can't do this here, as convID won't exist until after this method executes.
+       Integer convId = conversation.getId(); //get id of newly saved conversation!
+       log.info("can I get the new conversation id here: ");
+       log.info(String.valueOf(convId));
+
        //TO DO: set userConversation with userID & convID for each user selected (including logged in user).
+       UserConversation userConversation = new UserConversation();
+       userConversation.setConversation(conversation);
+       userConversation.setUser(user);
+       userConversationDAO.save(userConversation);
        //start with logged in user, need to figure out how pass group of users from front end to server/controller.
+
+
        //loop over each user and log out userID and convID
        //after successfull logging, persist each to DB
 

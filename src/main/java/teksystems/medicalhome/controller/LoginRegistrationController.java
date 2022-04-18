@@ -80,7 +80,6 @@ public class LoginRegistrationController {
             user = new User();
         }
 
-
         //set attributes of user instance with form values
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
@@ -97,7 +96,6 @@ public class LoginRegistrationController {
         userDAO.save(user);
 
         //create and save the user role object
-        //can build logic around this once roles are defined in app: patient, provider, admin etc.
         UserRole userRole = new UserRole();
         userRole.setUserId(user.getId());
         userRole.setUserRole("USER");
@@ -107,7 +105,7 @@ public class LoginRegistrationController {
         //send form to model
         response.addObject("form",form);
 
-        response.setViewName("login/loginForm");//purpose is to connect to the jsp page
+        response.setViewName("login/loginForm");
         return response;
 
     }

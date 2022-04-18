@@ -2,7 +2,7 @@
 
 <jsp:include page="../include/header.jsp"/>
 
-<main class="row" id="bg-msg">
+<main class="container-fluid row" id="bg-msg">
     <section class="col-3 my-3">
         <h4>Participants</h4>
 

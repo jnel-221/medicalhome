@@ -123,11 +123,16 @@ table, #tbl-background{
     transition: 0.5s;
 }
 
-/*not functioning, will try to remove class on event w/jQuery*/
-/*input[type="radio"]:checked ~ .reveal-if-active {*/
-/*    opacity: 1;*/
-/*    max-height: 100px;*/
-/*    overflow: visible;*/
-/*    padding: 10px 20px;*/
-/*    transform: scale(1);*/
-/*}*/
+/*Chat page start*/
+#chat-header{
+    background-color:var(--dark-grey);
+    color:var(--pearl);
+}
+
+#list-header{
+    text-align:center;
+}
+
+.chat-page{
+    padding: 0 !important;
+}
