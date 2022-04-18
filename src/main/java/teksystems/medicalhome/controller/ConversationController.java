@@ -96,36 +96,37 @@ public class ConversationController {
        }
         /*end form validation*/
 
-       //create new instance of Conversation class
+       //create new instance of Conversation class, save conversation
        Conversation conversation = conversationDAO.findById(form.getId());
        if(conversation == null){
            conversation = new Conversation();
        }
-
        conversation.setSubject(form.getSubject());
        conversationDAO.save(conversation);
 
-       Integer convId = conversation.getId(); //get id of newly saved conversation!
-       log.info("can I get the new conversation id here: ");
-       log.info(String.valueOf(convId));
-
-       //TO DO: set userConversation with userID & convID for each user selected (including logged in user).
+       //create new instance of UserConversation, save userConversation w/logged-in user info
        UserConversation userConversation = new UserConversation();
        userConversation.setConversation(conversation);
        userConversation.setUser(user);
        userConversationDAO.save(userConversation);
-       //start with logged in user, need to figure out how pass group of users from front end to server/controller.
 
+       //get participant ids from search field, add new instance of userConversation
+       //for each participant selected.
+       List<Integer> userIds = form.getUserId();
+       for (Integer uId: userIds
+            ) {
+          User participant = userDAO.findById(uId);
+          UserConversation userConversation1 = new UserConversation();
+            userConversation1.setUser(participant);
+            userConversation1.setConversation(conversation);
+          userConversationDAO.save(userConversation1);
+       }
 
-       //loop over each user and log out userID and convID
-       //after successfull logging, persist each to DB
-
-
-       //send form to model
+       //send form to model; do I need this?
        response.addObject("form", form);
 
        //TO DO: re-route to message view after it's created
-       response.setViewName("user/conversation");
+       response.setViewName("user/message");
        return response;
    }
 
