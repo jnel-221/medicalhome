@@ -18,6 +18,7 @@ html, body{
     height:100%;
     font-family: 'Lato', sans-serif;
     color:var(--dark-grey);
+    background-color:var(--pearl);
 }
 
 a,
@@ -49,6 +50,26 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: auto;
+}
+
+#bg-msg{
+    background-color:var(--pearl);
+    background-image: linear-gradient(
+            rgba(245, 245, 245, .75),
+            rgba(245, 245, 245, .75)
+    ),
+    url("../images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top:2.5rem;
+}
+
+#bg-msg-header{
+    background-color:var(--dark-grey);
+    color:var(--pearl);
 }
 
 .landing-card{
