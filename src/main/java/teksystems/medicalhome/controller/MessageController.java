@@ -30,8 +30,10 @@ public class MessageController {
     @RequestMapping(value = "/user/message/{id}", method = RequestMethod.GET)
     public ModelAndView message(@PathVariable("id") Integer id){
         ModelAndView response = new ModelAndView();
-        log.info("you hit the first route to the message room: ");
-        log.info(String.valueOf(id));
+        //get conversation by id;
+        //get user-conversation by id;
+
+
 
         response.setViewName("user/message");
         return response;
