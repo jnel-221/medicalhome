@@ -26,13 +26,14 @@ public class MessageController {
     @Autowired
     private UserConversationDAO userConversationDAO;
 
-//this method is called after user submits a conversation; will need to load page with info from most recently saved conversation.
-    @RequestMapping(value = "user/message", method = RequestMethod.GET)
-    public ModelAndView message(){
+    //method loads chat view using conversation id as path variable
+    @RequestMapping(value = "/user/message/{id}", method = RequestMethod.GET)
+    public ModelAndView message(@PathVariable("id") Integer id){
         ModelAndView response = new ModelAndView();
-        //get all conversations,pop off most recent one, then display?
-        response.setViewName("user/message");
+        log.info("you hit the first route to the message room: ");
+        log.info(String.valueOf(id));
 
+        response.setViewName("user/message");
         return response;
     }
 
@@ -46,9 +47,6 @@ public class MessageController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userDAO.findByEmail(username);
-
-
-
 
         return response;
     }

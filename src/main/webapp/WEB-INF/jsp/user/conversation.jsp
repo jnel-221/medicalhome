@@ -17,7 +17,7 @@
                     <h2 class="text-center mt-4">New Conversation</h2>
                     <form action="/user/conversationSubmit" method="post">
                         <input type="hidden" name="id" value="${user.id}">
-                        <div class="mb-3">
+                        <div class="mb-3 mx-3">
                             <label for="subject" class="form-label">Subject</label>
                             <input type="text" id="subject" class="form-control" placeholder="subject" name="subject"/>
                             <c:forEach items="${bindingResult.getFieldErrors('subject')}" var="error">
@@ -25,12 +25,12 @@
                             </c:forEach>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 mx-3">
                             <label class="form-check-label" for="specialty">Specialty</label>
                             <select class="form-select" aria-label="Default select example" name="userId" id="specialty" multiple>
-                                <option selected></option>
+<%--                                <option selected></option>--%>
                                 <c:forEach items="${usersMenu}" var="user">
-                                <option value="${user.id}" data-name="${user.firstName}">${user.firstName} ${user.lastName},  ${user.specialty} </option>
+                                <option value="${user.id}" data-name="${user.firstName}">${user.firstName} ${user.lastName}, ${user.specialty} </option>
                                 </c:forEach>
                             </select>
                         </div>

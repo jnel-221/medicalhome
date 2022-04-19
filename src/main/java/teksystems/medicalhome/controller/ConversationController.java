@@ -47,7 +47,6 @@ public class ConversationController {
         List<User> usersMenu;
 
         //get logged-in user information, to pull account-type from logged-in user
-        //need to pop this out into its own method so it can be utilized as needed w/o repeating
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userDAO.findByEmail(username);
@@ -88,9 +87,6 @@ public class ConversationController {
            }
            response.addObject("form",form);
            response.addObject("bindingResult", bindingResult);
-
-
-
            response.setViewName("user/conversation");
            return response;
        }
@@ -122,11 +118,10 @@ public class ConversationController {
           userConversationDAO.save(userConversation1);
        }
 
-       //send form to model; do I need this?
        response.addObject("form", form);
 
        //TO DO: re-route to message view after it's created
-       response.setViewName("user/message");
+       response.setViewName("redirect:/user/message/"+conversation.getId());//redirect to message page; make it its own request mapping
        return response;
    }
 
