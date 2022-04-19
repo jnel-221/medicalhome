@@ -16,6 +16,7 @@ import teksystems.medicalhome.database.entity.Conversation;
 import teksystems.medicalhome.database.entity.User;
 import teksystems.medicalhome.database.entity.UserConversation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -46,11 +47,16 @@ public class MessageController {
         userConversations.forEach(uc ->{
             log.info(uc.getUser().getFirstName());
             log.info(uc.getUser().getLastName());
+            log.info(uc.getUser().getImgUrl());
             log.info(uc.getUser().getSpecialty());
             log.info(uc.getUser().getCredential());
         });
+        List<User> users = new ArrayList<>();
+        userConversations.forEach(uc ->{
+            users.add(uc.getUser());
+        });
 
-        response.addObject("userConversations",userConversations);
+        response.addObject("users", users);
         response.addObject("conversation",conversation);
         response.setViewName("user/message");
         return response;

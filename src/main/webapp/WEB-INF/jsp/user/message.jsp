@@ -7,18 +7,21 @@
     <section class="col-3 my-3">
         <h4>Participants</h4>
 <%--        this is a mock-up for now, will eventually add users from here--%>
+
         <div class="card mb-3" style="max-width: 540px;">
+            <c:forEach var="user" items="${users}">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="...">
+                    <img src="${user.imgUrl}" class=" margin-auto" alt="${user.firstName} ${user.lastName}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">${user.firstName} ${user.lastName}</h5>
+                        <p class="card-text">${user.specialty}</p>
+                        <p class="card-text"><small class="text-muted">${user.credential}</small></p>
                     </div>
                 </div>
+                </c:forEach>
             </div>
 
 <%--    will put participant info in this section--%>
