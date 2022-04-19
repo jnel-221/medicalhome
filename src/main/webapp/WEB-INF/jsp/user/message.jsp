@@ -12,7 +12,15 @@
             <c:forEach var="user" items="${users}">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${user.imgUrl}" class=" margin-auto" alt="${user.firstName} ${user.lastName}">
+                    <c:choose>
+                        <c:when test="${user.imgUrl != null}">
+                        <img src="${user.imgUrl}" class="ms-4 mt-4" style="border-radius: 50%" alt="${user.firstName} ${user.lastName}">
+                        </c:when>
+                        <c:otherwise>
+<%--                            <div> Icons made by <a href="https://www.flaticon.com/authors/phoenix-group" title="Phoenix Group"> Phoenix Group </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>--%>
+                            <img src="/pub/images/userIcon.png" class="ms-4 mt-4" alt="${user.firstName} ${user.lastName}">
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

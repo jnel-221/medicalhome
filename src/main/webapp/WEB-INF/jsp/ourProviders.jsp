@@ -23,7 +23,17 @@
                 <tbody class="table_content">
             <c:forEach var="user" items="${users}">
                 <tr scope="row">
-                    <td><img class="ms-5" style="border-radius: 50%" src="${user.imgUrl}" alt="Dr.${user.firstName} ${user.lastName}"></td>
+                    <td>
+                    <c:choose>
+                        <c:when test="${user.imgUrl != null}">
+                    <img class="ms-5" style="border-radius: 50%" src="${user.imgUrl}" alt="Dr.${user.firstName} ${user.lastName}">
+                        </c:when>
+                        <c:otherwise>
+                            <%--                            <div> Icons made by <a href="https://www.flaticon.com/authors/phoenix-group" title="Phoenix Group"> Phoenix Group </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>--%>
+                            <img src="/pub/images/userIcon.png" class="ms-5" alt="${user.firstName} ${user.lastName}">
+                        </c:otherwise>
+                    </c:choose>
+                    </td>
                     <td>${user.firstName} ${user.lastName}</td>
                     <td>${user.specialty}, ${user.credential}</td>
                 </tr>
