@@ -1,9 +1,6 @@
 package teksystems.medicalhome.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 
 import javax.persistence.*;
@@ -23,11 +20,14 @@ public class UserConversation {
     private Integer id;
 
     //many to one rel w/User
+
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name= "user_id",nullable = false)
     private User user;
 
     //many to one rel w/Conversation
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "conv_id", nullable = false)
     private Conversation conversation;

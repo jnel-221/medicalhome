@@ -43,15 +43,20 @@ public class MessageController {
         Conversation conversation = conversationDAO.findById(id);
         //get user-conversations by tied to conversation;
         List<UserConversation> userConversations = userConversationDAO.findByConversation(conversation);
-        log.info(String.valueOf(userConversations));
+        userConversations.forEach(uc ->{
+            log.info(uc.getUser().getFirstName());
+            log.info(uc.getUser().getLastName());
+            log.info(uc.getUser().getSpecialty());
+            log.info(uc.getUser().getCredential());
+        });
 
-
+        response.addObject("userConversations",userConversations);
         response.addObject("conversation",conversation);
         response.setViewName("user/message");
         return response;
     }
 
-    //this method is called after user submits a conversation; will need to load page with info from most recently saved conversation.
+    //this method is called after user submits a message; will need to load page with info from most recently saved conversation.
     @RequestMapping(value = "user/messageSubmit", method = RequestMethod.GET)
     public ModelAndView messageSubmit(){
         ModelAndView response = new ModelAndView();
