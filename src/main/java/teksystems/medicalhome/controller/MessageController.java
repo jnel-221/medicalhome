@@ -20,6 +20,7 @@ import teksystems.medicalhome.formbean.MessageFormBean;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -51,7 +52,7 @@ public class MessageController {
 
         //get conversation by id;
         Conversation conversation = conversationDAO.findById(id);
-        //get user-conversations by tied to conversation;
+        //get user-conversations by conversation;
         List<UserConversation> userConversations = userConversationDAO.findByConversation(conversation);
         userConversations.forEach(uc ->{
             log.info(uc.getUser().getFirstName());
@@ -61,20 +62,39 @@ public class MessageController {
             log.info(uc.getUser().getCredential());
         });
 
+        //get users from userconversation objects and store in User list.
         List<User> users = new ArrayList<>();
         userConversations.forEach(uc ->{
             users.add(uc.getUser());
         });
 
+        //create Message instance, set values and save to db.
         Message message = new Message();
         message.setMessage(form.getMessage());
         message.setConversation(conversation);
         message.setUser(user);
-
         messageDAO.save(message);
 
-        response.addObject("users", users);
-        response.addObject("conversation", conversation);
+        //get all messages in conversation
+        List<Message> messages = messageDAO.findMessageByConversation(conversation);
+
+
+        messages.forEach(m ->{
+            log.info(String.valueOf(m));
+//            messages.add(m.getMessage());
+//            log.info(m.getMessage());
+//            Date date = m.getCreateDate();
+//            log.info(String.valueOf(date));
+//            log.info(String.valueOf(m.getUser()));
+        });
+
+
+
+
+        response.addObject("messages",messages); //add messages
+        response.addObject("user",user);//add logged-in user info
+        response.addObject("users", users);//add list of participants
+        response.addObject("conversation", conversation); //add conversation information
         response.addObject("form", form);
         response.setViewName("user/message");
         return response;

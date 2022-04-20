@@ -37,6 +37,9 @@
 <%--        add text-box for input field w/button for submitting--%>
         <ul id="messages">
 <%--            may style this w/css and add each message as an li w/no bullet?--%>
+            <c:forEach var="message" items="${messages}">
+            <li>${message.message}</li>
+            </c:forEach>
         </ul>
         <form id="form" var="conversation" action="/user/message/${conversation.id}" method="post">
             <textarea id="message" class="form-control" data-convId=${conversation.id} autocomplete="on" name="message"></textarea>
