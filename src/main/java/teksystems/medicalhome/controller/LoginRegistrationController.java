@@ -2,6 +2,8 @@ package teksystems.medicalhome.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,7 @@ public class LoginRegistrationController {
     @RequestMapping(value = "/login/login", method = RequestMethod.GET)
     public ModelAndView login() throws Exception{
         ModelAndView response = new ModelAndView();
+
         response.setViewName("login/loginForm");
         return response;
     }

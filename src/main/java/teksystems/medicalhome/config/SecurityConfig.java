@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login/login")
                 //url where login page will submit, should match value in form action attribute on jsp.
                 .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/index")//view that will display on successful login; can change this later.
+                .defaultSuccessUrl("/index/home")//view that will display on successful login; can change this later.
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

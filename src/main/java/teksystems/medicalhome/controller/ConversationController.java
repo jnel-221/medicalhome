@@ -73,18 +73,29 @@ public class ConversationController {
    @RequestMapping(value = "/user/conversationSubmit", method = RequestMethod.POST)
    public ModelAndView conversationSubmit(@Valid ConversationFormBean form, BindingResult bindingResult){
        ModelAndView response = new ModelAndView();
+       List<User> usersMenu;
+
         //get logged-in user info
        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
        String username = authentication.getName();
        User user = userDAO.findByEmail(username);
+       String userAcct = user.getAcctType();
 
        /*Begin form validation logic*/
        List<String> errorMessages = new ArrayList<>();
 
        if(bindingResult.hasErrors()){
            for(ObjectError error : bindingResult.getAllErrors()){
-               log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+               errorMessages.add(error.getDefaultMessage());
+              // log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
            }
+
+           if(userAcct.equals("patient")){
+               usersMenu = userDAO.findByAcctType("provider");
+           }else{
+               usersMenu = userDAO.findAll();
+           }
+           response.addObject("usersMenu", usersMenu);
            response.addObject("form",form);
            response.addObject("bindingResult", bindingResult);
            response.setViewName("user/conversation");
