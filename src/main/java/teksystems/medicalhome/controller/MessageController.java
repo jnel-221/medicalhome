@@ -13,9 +13,12 @@ import teksystems.medicalhome.database.dao.MessageDAO;
 import teksystems.medicalhome.database.dao.UserConversationDAO;
 import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.entity.Conversation;
+import teksystems.medicalhome.database.entity.Message;
 import teksystems.medicalhome.database.entity.User;
 import teksystems.medicalhome.database.entity.UserConversation;
+import teksystems.medicalhome.formbean.MessageFormBean;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +40,15 @@ public class MessageController {
     private UserConversationDAO userConversationDAO;
 
     //method loads chat view using conversation id as path variable
-    @RequestMapping(value = "/user/message/{id}", method = RequestMethod.GET)
-    public ModelAndView message(@PathVariable("id") Integer id){
+    @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form){
         ModelAndView response = new ModelAndView();
+
+        //get logged-in user information, to pull user id from logged-in user
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userDAO.findByEmail(username);
+
         //get conversation by id;
         Conversation conversation = conversationDAO.findById(id);
         //get user-conversations by tied to conversation;
@@ -51,28 +60,39 @@ public class MessageController {
             log.info(uc.getUser().getSpecialty());
             log.info(uc.getUser().getCredential());
         });
+
         List<User> users = new ArrayList<>();
         userConversations.forEach(uc ->{
             users.add(uc.getUser());
         });
 
+        Message message = new Message();
+        message.setMessage(form.getMessage());
+        message.setConversation(conversation);
+        message.setUser(user);
+
+        messageDAO.save(message);
+
         response.addObject("users", users);
-        response.addObject("conversation",conversation);
+        response.addObject("conversation", conversation);
+        response.addObject("form", form);
         response.setViewName("user/message");
         return response;
     }
 
     //this method is called after user submits a message; will need to load page with info from most recently saved conversation.
-    @RequestMapping(value = "user/messageSubmit", method = RequestMethod.GET)
-    public ModelAndView messageSubmit(){
-        ModelAndView response = new ModelAndView();
-        response.setViewName("user/message");
-
-        //get logged-in user information, to pull account-type from logged-in user
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        User user = userDAO.findByEmail(username);
-
-        return response;
-    }
+//    @RequestMapping(value = "/user/messageSubmit", method = RequestMethod.POST)
+//    public ModelAndView messageSubmit(@Valid MessageFormBean form, @PathVariable("id") Integer id){ //@PathVariable("id") Integer id,
+//        ModelAndView response = new ModelAndView();
+//
+//        //get logged-in user information, to pull user id from logged-in user
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String username = authentication.getName();
+//        User user = userDAO.findByEmail(username);
+//
+//        //create instance of message class
+//        response.addObject("form",form);
+//        response.setViewName("redirect:/user/message/");
+//        return response;
+//    }
 }

@@ -6,8 +6,6 @@
 <main class="container-fluid row" id="bg-msg">
     <section class="col-3 my-3">
         <h4>Participants</h4>
-<%--        this is a mock-up for now, will eventually add users from here--%>
-
         <div class="card mb-3" style="max-width: 540px;">
             <c:forEach var="user" items="${users}">
             <div class="row g-0">
@@ -40,22 +38,11 @@
         <ul id="messages">
 <%--            may style this w/css and add each message as an li w/no bullet?--%>
         </ul>
-        <form id="form" action="">
-            <textarea id="message" class="form-control" autocomplete="on" name="message"/></textarea>
-            <button type="submit" class="btn"  id="sButton button-addon2">Send</button>
+        <form id="form" var="conversation" action="/user/message/${conversation.id}" method="post">
+            <textarea id="message" class="form-control" data-convId=${conversation.id} autocomplete="on" name="message"></textarea>
+            <button type="submit" class="btn" data-convId=${conversation.id} id="sButton button-addon2">Send</button>
         </form>
 
     </div>
 </main>
-
-
-
-
-
-
-
-
-
-
-
 <jsp:include page="../include/footer.jsp"/>

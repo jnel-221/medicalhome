@@ -40,7 +40,6 @@ public class LoginRegistrationController {
         return response;
     }
 
-
     /*provide entry point/route for user registration page*/
     @RequestMapping(value = "/user/register", method = RequestMethod.GET)
     public ModelAndView register() throws Exception{
