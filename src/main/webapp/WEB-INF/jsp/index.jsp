@@ -6,7 +6,7 @@
 <%--Hero secton--%>
 <div class="hero-image">
     <div class="hero-text">
-        <h1 style="font-size: 50px">I ARE HERO</h1>
+        <h1 style="font-size: 50px">Improving Outcomes for Moms and Babies</h1>
         <p>Big dang heroes</p>
         <a href="/login/login"><button style="background-color: #f46d25">Login</button></a>
 
@@ -50,6 +50,7 @@
     </div>
 </sec:authorize>
 <%--End display for non-authenticated user--%>
+
 <%--Begin display for authenticated user--%>
 <sec:authorize access="isAuthenticated()">
     <div class="hero-image">
@@ -61,8 +62,9 @@
             <a href="/user/conversation"><button style="background-color: #f46d25"> + New</button></a>
         </div>
     </div>
-    <!-- end hero section-->
-   <%--begin conversation history section--%>
+    <!-- End hero section-->
+
+   <%--Begin conversation history section--%>
     <div class="container mx-auto mt-5">
         <div class="row">
             <div class="col-md-4">
@@ -77,5 +79,6 @@
             </div>
         </div>
 </sec:authorize>
+<%--end conversation history section--%>
 
 <jsp:include page="include/footer.jsp"/>

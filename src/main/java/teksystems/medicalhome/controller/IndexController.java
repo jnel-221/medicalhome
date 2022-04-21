@@ -37,7 +37,28 @@ public class IndexController {
         return response;
     }
 
+    //serve homepage to authenticated users
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView indexLoggedIn() throws Exception {
+        ModelAndView response = new ModelAndView();
+        List<Conversation> conversations;
 
+        //get logged-in user information, to pull user id from logged-in user
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userDAO.findByEmail(username);
+        log.info(String.valueOf(user));
+        log.info("You're in the index/home route after userDao findByEmail is called");
+        log.info(String.valueOf(user));
+
+        //get userconversations by userID, loop through, grab conversations and add them to conversation list
+
+
+        //load conversations to model
+        //response.addObject("user",user);
+        response.setViewName("index");
+        return response;
+    }
 
     //serve upload form
     @RequestMapping(value="/upload", method = RequestMethod.GET)

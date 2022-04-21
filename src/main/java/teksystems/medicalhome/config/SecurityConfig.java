@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests()//list of urls that will be un secured, anyone can access. Customize to your app
+                .authorizeRequests()//list of urls that will be unsecured, anyone can access.
                 .antMatchers("/pub/**", "/error/**", "/login/**", "/user/register","/user/registerSubmit", "/index").permitAll()//these are urls that do not require authentication(not logged in)
                 .antMatchers("/admin/**", "/user/**").authenticated()//all admin functions should be in the admin folder; these are URLS that need authenticated
                 .and()
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login/login")
                 //url where login page will submit, should match value in form action attribute on jsp.
                 .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/index/home")//view that will display on successful login; can change this later.
+                .defaultSuccessUrl("/home")//view that will display on successful login;.
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

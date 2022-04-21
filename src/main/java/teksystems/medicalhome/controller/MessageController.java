@@ -28,21 +28,25 @@ import java.util.List;
 @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
 public class MessageController {
 
-    @Autowired
     private ConversationDAO conversationDAO;
 
-    @Autowired
     private MessageDAO messageDAO;
 
-    @Autowired
     private UserDAO userDAO;
 
-    @Autowired
     private UserConversationDAO userConversationDAO;
 
+    @Autowired
+    public MessageController(ConversationDAO conversationDAO, MessageDAO messageDAO, UserDAO userDAO, UserConversationDAO userConversationDAO) {
+        this.conversationDAO = conversationDAO;
+        this.messageDAO = messageDAO;
+        this.userDAO = userDAO;
+        this.userConversationDAO = userConversationDAO;
+    }
+
     //method loads chat view using conversation id as path variable
-    @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form){
+   @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form) {
         ModelAndView response = new ModelAndView();
 
         //get logged-in user information, to pull user id from logged-in user
@@ -54,7 +58,7 @@ public class MessageController {
         Conversation conversation = conversationDAO.findById(id);
         //get user-conversations by conversation;
         List<UserConversation> userConversations = userConversationDAO.findByConversation(conversation);
-        userConversations.forEach(uc ->{
+        userConversations.forEach(uc -> {
             log.info(uc.getUser().getFirstName());
             log.info(uc.getUser().getLastName());
             log.info(uc.getUser().getImgUrl());
@@ -64,7 +68,7 @@ public class MessageController {
 
         //get users from userconversation objects and store in User list.
         List<User> users = new ArrayList<>();
-        userConversations.forEach(uc ->{
+        userConversations.forEach(uc -> {
             users.add(uc.getUser());
         });
 
@@ -79,7 +83,7 @@ public class MessageController {
         List<Message> messages = messageDAO.findMessageByConversation(conversation);
 
 
-        messages.forEach(m ->{
+        messages.forEach(m -> {
             log.info(String.valueOf(m));
 //            messages.add(m.getMessage());
 //            log.info(m.getMessage());
@@ -89,10 +93,8 @@ public class MessageController {
         });
 
 
-
-
-        response.addObject("messages",messages); //add messages
-        response.addObject("user",user);//add logged-in user info
+        response.addObject("messages", messages); //add messages
+        response.addObject("user", user);//add logged-in user info
         response.addObject("users", users);//add list of participants
         response.addObject("conversation", conversation); //add conversation information
         response.addObject("form", form);
@@ -100,43 +102,4 @@ public class MessageController {
         return response;
     }
 
-
-    //serve homepage to authenticated users
-    @RequestMapping(value = "/index/home", method = RequestMethod.GET)
-    private ModelAndView indexLoggedIn() throws Exception {
-        ModelAndView response = new ModelAndView();
-        List<Conversation> conversations;
-
-        //get logged-in user information, to pull user id from logged-in user
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        User user = userDAO.findByEmail(username);
-        log.info(String.valueOf(user));
-        log.info("You're in the index/home route after userDao findByEmail is called");
-        log.info(String.valueOf(user));
-
-        //get userconversations by userID, loop through, grab conversations and add them to conversation list
-
-
-        //load conversations to model
-        //response.addObject("user",user);
-        response.setViewName("index");
-        return response;
-    }
-
-    //this method is called after user submits a message; will need to load page with info from most recently saved conversation.
-//    @RequestMapping(value = "/user/messageSubmit", method = RequestMethod.POST)
-//    public ModelAndView messageSubmit(@Valid MessageFormBean form, @PathVariable("id") Integer id){ //@PathVariable("id") Integer id,
-//        ModelAndView response = new ModelAndView();
-//
-//        //get logged-in user information, to pull user id from logged-in user
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String username = authentication.getName();
-//        User user = userDAO.findByEmail(username);
-//
-//        //create instance of message class
-//        response.addObject("form",form);
-//        response.setViewName("redirect:/user/message/");
-//        return response;
-//    }
 }
