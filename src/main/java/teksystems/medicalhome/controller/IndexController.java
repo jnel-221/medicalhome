@@ -14,23 +14,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import teksystems.medicalhome.database.dao.ConversationDAO;
+import teksystems.medicalhome.database.dao.UserConversationDAO;
 import teksystems.medicalhome.database.dao.UserDAO;
 import teksystems.medicalhome.database.entity.Conversation;
 import teksystems.medicalhome.database.entity.User;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
 public class IndexController {
 
-    @Autowired
+
     private UserDAO userDAO;
+    private UserConversationDAO userConversationDAO;
+    private ConversationDAO conversationDAO;
+
+    @Autowired
+    public IndexController(UserDAO userDAO, UserConversationDAO userConversationDAO, ConversationDAO conversationDAO) {
+        this.userDAO = userDAO;
+        this.userConversationDAO = userConversationDAO;
+        this.conversationDAO = conversationDAO;
+    }
 
     //serve homepage to un-authenticated users
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    private ModelAndView index() throws Exception{
+    public ModelAndView index() throws Exception{
         ModelAndView response = new ModelAndView();
 
         response.setViewName("index");
@@ -47,15 +60,17 @@ public class IndexController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userDAO.findByEmail(username);
-        log.info(String.valueOf(user));
-        log.info("You're in the index/home route after userDao findByEmail is called");
-        log.info(String.valueOf(user));
+        Integer userId = user.getId();
+        String firstName = user.getFirstName();
 
         //get userconversations by userID, loop through, grab conversations and add them to conversation list
+        List<Map<String,Object>> userConversations = userConversationDAO.findAllConversationsByUserId(userId);
 
 
         //load conversations to model
-        //response.addObject("user",user);
+        response.addObject("firstName", firstName);
+        response.addObject("userConversations", userConversations);
+        response.addObject("user",user);
         response.setViewName("index");
         return response;
     }

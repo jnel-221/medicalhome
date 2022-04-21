@@ -22,11 +22,13 @@ public class Message {
     private Integer id;
 
     //many to one rel w/User
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name= "user_id",nullable = false)
     private User user;
 
     //many to one rel w/Conversation
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "conv_id", nullable = false)
     private Conversation conversation;

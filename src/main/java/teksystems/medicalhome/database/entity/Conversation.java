@@ -24,10 +24,12 @@ public class Conversation {
     private Integer id;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "conversation", fetch = FetchType.LAZY)
     private Set<UserConversation> userConversations;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "message", fetch = FetchType.LAZY)
     private Set<Message> messages;
 

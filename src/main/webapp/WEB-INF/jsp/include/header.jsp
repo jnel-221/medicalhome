@@ -97,28 +97,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-auto">
-                    <a class="nav-link active" aria-current="page" href="/index"
-                    >Home</a
-                    >
+
+                    <sec:authorize access="!isAuthenticated()">
+                        <a class="nav-link active" aria-current="page" href="/index">Home</a>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </sec:authorize>
+
                     <a class="nav-link" href="/ourProviders">Providers</a>
 
                     <sec:authorize access="isAuthenticated()">
-                    <a class="nav-link" href="/user/message">Message</a>
+                        <a class="nav-link" href="/user/message">Message</a>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
-                    <a class="nav-link" href="/user/conversation">My Case</a>
+                        <a class="nav-link" href="/user/conversation">My Case</a>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
-                    <a class="nav-link" href="/user/register">Create Account</a>
+                        <a class="nav-link" href="/user/register">Create Account</a>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
-                    <a class="nav-link" href="/login/login">Log In</a>
+                        <a class="nav-link" href="/login/login">Log In</a>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
-                    <a class="nav-link" href="/login/logout">Logout</a>
+                        <a class="nav-link" href="/login/logout">Logout</a>
                     </sec:authorize>
                     <sec:authorize access="hasRole('ADMIN')">
-                    <a class="nav-link" href="/upload">Upload</a>
+                        <a class="nav-link" href="/upload">Upload</a>
                     </sec:authorize>
                 </div>
             </div>

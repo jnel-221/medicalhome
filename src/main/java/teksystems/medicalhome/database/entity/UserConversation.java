@@ -22,12 +22,14 @@ public class UserConversation {
     //many to one rel w/User
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name= "user_id",nullable = false)
     private User user;
 
     //many to one rel w/Conversation
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "conv_id", nullable = false)
     private Conversation conversation;

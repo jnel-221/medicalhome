@@ -44,6 +44,14 @@ public class MessageController {
         this.userConversationDAO = userConversationDAO;
     }
 
+
+
+
+    //separated get from post, redirect to get after post complete; pass convID on hidden input field.
+
+
+
+
     //method loads chat view using conversation id as path variable
    @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form) {
