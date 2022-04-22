@@ -103,13 +103,11 @@
                     <sec:authorize access="isAuthenticated()">
                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </sec:authorize>
-
                     <a class="nav-link" href="/ourProviders">Providers</a>
-
-                    <sec:authorize access="isAuthenticated()">
+                    <sec:authorize access="hasAnyAuthority('USER','ADMIN')">
                         <a class="nav-link" href="/user/message">Message</a>
                     </sec:authorize>
-                    <sec:authorize access="isAuthenticated()">
+                    <sec:authorize access="hasAnyAuthority('USER','ADMIN')">
                         <a class="nav-link" href="/user/conversation">My Case</a>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">

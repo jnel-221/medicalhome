@@ -1,7 +1,7 @@
 <jsp:include page="include/header.jsp"/>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!-- home-page main content, different display for authenticated/non-authenticated -->
 <%--Begin display for non-authenticated users--%>
 <sec:authorize access="!isAuthenticated()">
@@ -74,7 +74,7 @@
                 <div class="card w-75">
                     <div class="card-body">
                         <h5 class="card-title">${uc.subject}</h5>
-                        <p class="card-text">${uc.create_date}</p>
+                        <p class="card-text"><fmt:formatDate type = "date" value = "${uc.create_date}"/></p>
                         <button type="submit" class="btn" id="sButton button-addon2">View</button>
                     </div>
                 </div>

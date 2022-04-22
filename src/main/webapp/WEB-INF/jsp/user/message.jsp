@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="../include/header.jsp"/>
 
@@ -41,7 +42,7 @@
                     <c:forEach var="message" items="${messages}">
                         <li><p>${message.message}</p>
                             <p style="font-style: italic; text-align: right; margin: 0">-${message.user.firstName} ${message.user.lastName}</p>
-                            <p style="font-size: x-small; text-align: right">${message.createDate}</p>
+                            <p style="font-size: x-small; text-align: right"><fmt:formatDate type = "both" value = "${message.createDate}" /></p>
                         </li>
                     </c:forEach>
                 </ul>
