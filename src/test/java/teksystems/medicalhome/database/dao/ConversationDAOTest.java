@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import teksystems.medicalhome.database.entity.Conversation;
 
+import java.util.Optional;
+
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ConversationDAOTest {
@@ -30,7 +32,9 @@ public void createConversationTest(){
 @Test
 @Order(2)
 public void getConversationTest(){
+    Conversation conv = conversationDAO.findById(1);
 
+    Assertions.assertThat(conv.getId() == 1);
 }
 
 //update conversation
@@ -38,6 +42,10 @@ public void getConversationTest(){
 @Order(3)
 @Rollback(value = false)
 public void updateConversationTest(){
+Conversation conv = conversationDAO.findById(1);
+conv.setSubject("Pudding pops");
+
+Assertions.assertThat(conversationDAO.findById(1).getSubject().equals(conv.getSubject()));
 
 }
 
@@ -46,7 +54,18 @@ public void updateConversationTest(){
 @Order(4)
 @Rollback(value = false)
 public void deleteConversationTest(){
+    Conversation conv = conversationDAO.findById(1);
+    conversationDAO.delete(conv);
 
+    Optional<Conversation> optionalConv = Optional.ofNullable((conversationDAO.findById(conv.getId())));
+
+    Conversation tempConv = null;
+
+    if(optionalConv == null){
+        tempConv = optionalConv.get();
+    }
+
+    Assertions.assertThat(tempConv).isNull();
 }
 
 }
