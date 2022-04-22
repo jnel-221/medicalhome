@@ -1,8 +1,9 @@
 <jsp:include page="include/header.jsp"/>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- home-page main content, different display for authenticated/non-authenticated -->
 
+<!-- home-page main content, different display for authenticated/non-authenticated -->
+<%--Begin display for non-authenticated users--%>
 <sec:authorize access="!isAuthenticated()">
 <%--Hero secton--%>
 <div class="hero-image">
@@ -52,25 +53,23 @@
 </sec:authorize>
 <%--End display for non-authenticated user--%>
 
+
 <%--Begin display for authenticated user--%>
 <sec:authorize access="isAuthenticated()">
+<%--Begin hero section--%>
     <div class="hero-image">
         <div class="hero-text">
-
             <h1 style="font-size: 50px">Welcome ${user.firstName}</h1>
-
-            <h1 style="font-size: 50px">Welcome Friend</h1>
             <p>Big dang heroes</p>
             <a href="/user/conversation"><button style="background-color: #f46d25"> + New</button></a>
         </div>
     </div>
     <!-- End hero section-->
-
    <%--Begin conversation history section--%>
     <div class="container mx-auto mt-5">
         <div class="row">
             <c:forEach var="uc" items="${userConversations}">
-               <form action="/user/message/${uc.id}" method="post">
+               <form class="my-2" action="/user/message/${uc.id}" method="post">
                    <input type="hidden" name="convId">
                 <div class="card w-75">
                     <div class="card-body">
@@ -83,6 +82,5 @@
             </c:forEach>
         </div>
 </sec:authorize>
-<%--end conversation history section--%>
-
+<%--End conversation history section--%>
 <jsp:include page="include/footer.jsp"/>

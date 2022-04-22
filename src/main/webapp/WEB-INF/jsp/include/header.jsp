@@ -40,8 +40,8 @@
     <style>
         .hero-image {
             background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)
+                    rgba(0, 0, 0, 0.3),
+                    rgba(0, 0, 0, 0.3)
             ),
             url("/pub/images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
             height: 50%;
@@ -80,7 +80,6 @@
 <body>
 <!-- navbar -->
 <section id="header">
-    <!-- removed navbar-light and bg-light fixed-top -->
     <nav class="navbar navbar-expand-lg fixed-top nav-style">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><!--img--></a>
@@ -122,7 +121,7 @@
                     <sec:authorize access="isAuthenticated()">
                         <a class="nav-link" href="/login/logout">Logout</a>
                     </sec:authorize>
-                    <sec:authorize access="hasRole('ADMIN')">
+                    <sec:authorize access="hasAuthority('ADMIN')">
                         <a class="nav-link" href="/upload">Upload</a>
                     </sec:authorize>
                 </div>
