@@ -12,4 +12,6 @@ import java.util.List;
 public interface MessageDAO extends JpaRepository<Message, Long> {
     public List<Message> findMessageByConversation(@Param("convId") Conversation convId);
 
+    public Message findById(@Param("id")Integer id);
+
 }
