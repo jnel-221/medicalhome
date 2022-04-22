@@ -52,25 +52,7 @@ a:hover {
     overflow: auto;
 }
 
-#bg-msg{
-    background-color:var(--pearl);
-    background-image: linear-gradient(
-            rgba(245, 245, 245, .75),
-            rgba(245, 245, 245, .75)
-    ),
-    url("../images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    padding-top:2.5rem;
-}
 
-#bg-msg-header{
-    background-color:var(--dark-grey);
-    color:var(--pearl);
-}
 
 .landing-card{
     border-radius: 10px;
@@ -124,10 +106,31 @@ table, #tbl-background{
 }
 
 /*Chat page start*/
-#chat-header{
+#bg-msg{
+    background-color:var(--pearl);
+    background-image: linear-gradient(
+            rgba(245, 245, 245, .75),
+            rgba(245, 245, 245, .75)
+    ),
+    url("../images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top:2.5rem;
+    overflow: auto;
+}
+
+#bg-msg-header{
     background-color:var(--dark-grey);
     color:var(--pearl);
 }
+
+/*#chat-header{*/
+/*    background-color:var(--dark-grey);*/
+/*    color:var(--pearl);*/
+/*} duplicate class*/
 
 #list-header{
     text-align:center;
@@ -150,8 +153,14 @@ table, #tbl-background{
 
 #main_content_right{
     max-width: 60%;
+    display: inline-block;
 }
 
+#type-box{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
 
 /*styles from socket-io project*/

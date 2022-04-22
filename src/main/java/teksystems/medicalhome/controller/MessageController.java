@@ -18,9 +18,8 @@ import teksystems.medicalhome.database.entity.User;
 import teksystems.medicalhome.database.entity.UserConversation;
 import teksystems.medicalhome.formbean.MessageFormBean;
 
-import javax.validation.Valid;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -44,7 +43,7 @@ public class MessageController {
         this.userConversationDAO = userConversationDAO;
     }
 
-    //separate get from post, redirect to get after post complete; pass convID on hidden input field.
+    //Possible to-do: separate get from post, redirect to get after post complete; pass convID on hidden input field.
     //method loads chat view using conversation id as path variable
    @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form) {
@@ -83,17 +82,7 @@ public class MessageController {
         //get all messages in conversation
         List<Message> messages = messageDAO.findMessageByConversation(conversation);
 
-
-        messages.forEach(m -> {
-            log.info(String.valueOf(m));
-//            messages.add(m.getMessage());
-//            log.info(m.getMessage());
-//            Date date = m.getCreateDate();
-//            log.info(String.valueOf(date));
-//            log.info(String.valueOf(m.getUser()));
-        });
-
-
+        //add data to ModelAndView
         response.addObject("messages", messages); //add messages
         response.addObject("user", user);//add logged-in user info
         response.addObject("users", users);//add list of participants
@@ -102,5 +91,4 @@ public class MessageController {
         response.setViewName("user/message");
         return response;
     }
-
 }
