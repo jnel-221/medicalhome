@@ -48,15 +48,19 @@ public class UserDAOTest {
 
     }
 
-//    @Test
-//    @Order(1)
-//    public void createUser(){
-//        User user = User.builder().user
-//
-//    }
+    //create user
+    @Test
+    @Order(1)
+    public void createUser(){
+        User user = User.builder().firstName("Bill").lastName("Murray").email("bill@murray.com").password("password").build();
+
+        userDAO.save(user);
+
+        Assertions.assertThat(user.getEmail().equals("bill@murray.com"));
+    }
 
 
-
+    //read users
     @ParameterizedTest
     @Order(1)
     @ValueSource(strings = {"jenB@bob.com", "sujata@bob.com"})
@@ -65,7 +69,7 @@ public class UserDAOTest {
         assertNotNull(user);
     }
 
-
+    //read users
     @Test
     @Order(2)
     public void getListOfUsers(){
@@ -73,6 +77,7 @@ public class UserDAOTest {
         Assertions.assertThat(users.size() > 0);
     }
 
+    //update users
     @Test
     @Order(3)
     @Rollback(value = false)
@@ -83,6 +88,7 @@ public class UserDAOTest {
         Assertions.assertThat(userDAO.findById(2).getSpecialty().equals(user.getSpecialty()));
     }
 
+    //delete users
     @Test
     @Order(4)
     @Rollback(value = false)
