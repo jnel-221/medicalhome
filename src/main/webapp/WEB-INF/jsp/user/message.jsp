@@ -5,7 +5,7 @@
 
 <main class="row main-content" id="bg-msg">
     <section class="col-3 my-3 main_content_left">
-        <h4>Participants</h4>
+        <h4 id="participant-header">Participants</h4>
         <div class="card mb-3" style="max-width: 540px;">
             <c:forEach var="user" items="${users}">
             <div class="row g-0">
@@ -37,7 +37,7 @@
     <div class="col-9">
         <div class="row main_content_right">
             <div class="col-12">
-                <header class="p-2 text-light text-center" id="bg-msg-header"><h1>${conversation.subject}</h1></header>
+                <header class="text-center bg-secondary" id="bg-msg-header"><h1>${conversation.subject}</h1></header>
                 <ul id="messages">
                     <c:forEach var="message" items="${messages}">
                         <li><p>${message.message}</p>
