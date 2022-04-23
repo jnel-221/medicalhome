@@ -4,11 +4,11 @@
 <jsp:include page="include/header.jsp"/>
 
 <div class="bg">
-    <div class="row">
-        <div class="class col-sm-12">
-            <h1 class="text-center">Hello Jello</h1>
-        </div>
-    </div>
+<%--    <div class="row">--%>
+<%--        <div class="class col-sm-12">--%>
+<%--            <h1 class="text-center">Hello Jello</h1>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="row">
         <div class="col-sm-10 m-auto">
             <h1 class="text-center my-4">Our Providers</h1>

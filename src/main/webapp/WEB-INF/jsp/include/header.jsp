@@ -83,7 +83,8 @@
 
 <!-- navbar -->
 <section id="header">
-    <nav class="navbar navbar-expand-lg fixed-top nav-style">
+<%--    fixed-top  add back to nav-class after testing--%>
+    <nav class="navbar navbar-expand-lg nav-style">
         <div class="container-fluid">
 <%--            <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>--%>
     <sec:authorize access="!isAuthenticated()">
