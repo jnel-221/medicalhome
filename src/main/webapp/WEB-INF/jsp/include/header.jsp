@@ -39,12 +39,13 @@
     <%--Internal stylesheet for hero-image on landing page--%>
     <style>
         .hero-image {
+
             background-image: linear-gradient(
                     rgba(0, 0, 0, 0.3),
                     rgba(0, 0, 0, 0.3)
             ),
             url("/pub/images/karim-ben-van-mKk2nnZ1EQk-unsplash.jpg");
-            height: 50%;
+            height: 55%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -52,6 +53,7 @@
         }
 
         .hero-text {
+            padding-top: 5rem;
             text-align: center;
             position: absolute;
             top: 50%;
@@ -64,25 +66,32 @@
             border: none;
             outline: 0;
             display: inline-block;
-            padding: 10px 25px;
-            color: black;
+            padding: .7rem 2.188rem;
+            color: white;
             background-color: #ddd;
             text-align: center;
             cursor: pointer;
         }
 
         .hero-text button:hover {
-            background-color: #555;
+            background-color: #4b4b55;
             color: white;
         }
     </style>
 </head>
 <body>
+
 <!-- navbar -->
 <section id="header">
     <nav class="navbar navbar-expand-lg fixed-top nav-style">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><!--img--></a>
+<%--            <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>--%>
+    <sec:authorize access="!isAuthenticated()">
+        <a class="navbar-brand ms-5" href="/index"><img src="/pub/images/trillium.png"></a>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+        <a class="navbar-brand ms-5" href="/home"><img src="/pub/images/trillium.png"></a>
+     </sec:authorize>
             <button
                     class="navbar-toggler"
                     type="button"

@@ -35,8 +35,7 @@ a:hover {
 .nav-style {
     /* background: linear-gradient(#4b4b55,turquoise); */
     background: #53dcdc;
-
-    color: #f5f5f5;
+    color:var(--pearl);
 }
 .fa-bars{
     color:var(--pearl);
@@ -57,6 +56,12 @@ a:hover {
 .landing-card{
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-icon-cap{
+    background-color:var(--med-turquoise);
+    height: 200px;
+    width: 100%;
 }
 
 .card-container{

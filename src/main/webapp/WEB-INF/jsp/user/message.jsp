@@ -3,7 +3,7 @@
 
 <jsp:include page="../include/header.jsp"/>
 
-<main class="row main-content" id="bg-msg">
+<main class="row main-content ps-3" id="bg-msg">
     <section class="col-3 my-3 main_content_left">
         <h4 id="participant-header">Participants</h4>
         <div class="card mb-3" style="max-width: 540px;">
