@@ -13,6 +13,6 @@ public class MessageFormBean {
 
     private Integer id;
 
-    @NotNull(message ="Add a message")
+
     private String message;
 }
