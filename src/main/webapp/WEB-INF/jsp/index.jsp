@@ -9,11 +9,10 @@
     <div class="hero-image">
         <div class="hero-text">
             <h1 style="font-size: 50px">Improving Outcomes for Moms and Babies</h1>
-            <p>Big dang heroes</p>
+            <p>By providing centralized, coordinated, and accessible communication, throughout the pre-natal and peri-natal periods.</p>
             <a href="/login/login">
                 <button style="background-color: #f46d25">Login</button>
             </a>
-
         </div>
     </div>
     <!-- End hero section-->
@@ -23,24 +22,23 @@
         <div class="col-md-4">
             <div class="card landing-card" style="width: 18rem;">
                     <%--<a href="https://www.flaticon.com/free-icons/care" title="care icons">Care icons created by Freepik - Flaticon</a>--%>
-                <div class="card-icon-cap text-center"><img src="/pub/images/healthcare.png" alt="hands holding heart icon" class="mt-4"></div>
+                <div class="card-icon-cap text-center"><img src="/pub/images/healthcare.png"
+                                                            alt="hands holding heart icon" class="mt-4"></div>
                 <div class="card-body">
-                    <h5 class="card-title">Create an Account</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title text-center">Centralized Care</h5>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">One team. One portal. One Goal.</h6>
+                    <p class="card-text text-center">To ensure the best health outcomes for you and for your baby.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card landing-card" style="width: 18rem;">
-                    <%--                <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">--%>
+                    <%--<a href="https://www.flaticon.com/free-icons/care" title="care icons">Care icons created by Freepik - Flaticon</a>--%>
                 <div class="card-icon-cap text-center"><img src="/pub/images/group.png" alt="group-chat icon" class="mt-4"></div>
                 <div class="card-body">
-                    <h5 class="card-title">Assemble a Care Team</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title text-center">Coordinated Care</h5>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">Start a conversation, or two, or three.</h6>
+                    <p class="card-text text-center">Engage in one-on-one or group chats with your care team.</p>
 
                 </div>
             </div>
@@ -51,10 +49,9 @@
                     <%--<a href="https://www.flaticon.com/free-icons/care" title="care icons">Care icons created by Freepik - Flaticon</a>--%>
                 <div class="card-icon-cap text-center"><img src="/pub/images/hands.png" alt="big hand holding little hand icon" class="mt-4"></div>
                 <div class="card-body">
-                    <h5 class="card-title">Get Your Questions Answered</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title text-center">360&deg Care</h5>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">Postpartum questions? We're here for them.</h6>
+                    <p class="card-text text-center">Your care doesn't stop after baby arrives, you'll have support through the postpartum period</p>
                 </div>
             </div>
         </div>

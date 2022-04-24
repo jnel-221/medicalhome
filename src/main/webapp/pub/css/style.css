@@ -15,6 +15,7 @@
 html, body{
     padding: 0;
     margin: 0;
+    padding-top: 1rem;
     height:100%;
     font-family: 'Lato', sans-serif;
     color:var(--dark-grey);
@@ -51,7 +52,9 @@ a:hover {
     overflow: auto;
 }
 
-
+.providers-page{
+    padding-top: 5rem;
+}
 
 .landing-card{
     border-radius: 10px;

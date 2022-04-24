@@ -1,14 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../include/header.jsp"/>
-<%--Hero secton--%>
-<div class="hero-image">
-    <div class="hero-text">
-        <h1 style="font-size: 50px" class="mt-5">Working Title</h1>
-        <p>maybe something else here, like Welcome So & So....</p>
-    </div>
-</div>
-<!-- end hero section-->
+
 <div class="bg">
     <div class="row">
         <div class="col-sm-6 m-auto card-container">
@@ -26,7 +19,7 @@
                         </div>
 
                         <div class="mb-3 mx-3">
-                            <label class="form-check-label" for="specialty">Specialty</label>
+                            <label class="form-check-label" for="specialty">Select Participants <em style="font-size: small">(ctrl + click to select more than one)</em></label>
                             <select class="form-select" aria-label="Default select example" name="userId" id="specialty" multiple>
 <%--                                <option selected></option>--%>
                                 <c:forEach items="${usersMenu}" var="user">
@@ -36,8 +29,8 @@
                         </div>
 
                         <div style="text-align: center;">
-                            <button type="submit" class="btn" id="sButton">
-                                Create Account
+                            <button type="submit" class="btn mt-2" id="sButton">
+                                Start Conversation
                             </button>
                         </div>
                     </form>

@@ -3,7 +3,7 @@
 
 <jsp:include page="include/header.jsp"/>
 
-<div class="bg">
+<div class="bg providers-page">
 <%--    <div class="row">--%>
 <%--        <div class="class col-sm-12">--%>
 <%--            <h1 class="text-center">Hello Jello</h1>--%>
