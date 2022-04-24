@@ -62,7 +62,7 @@ public class UserDAOTest {
 
     //read users
     @ParameterizedTest
-    @Order(1)
+    @Order(2)
     @ValueSource(strings = {"jenB@bob.com", "sujata@bob.com"})
     public void findUserTest(String email){
         User user = userDAO.findByEmail(email);
@@ -71,7 +71,7 @@ public class UserDAOTest {
 
     //read users
     @Test
-    @Order(2)
+    @Order(3)
     public void getListOfUsers(){
         List<User> users = userDAO.findAll();
         Assertions.assertThat(users.size() > 0);
@@ -79,24 +79,24 @@ public class UserDAOTest {
 
     //update users
     @Test
-    @Order(3)
+    @Order(4)
     @Rollback(value = false)
     public void updateUserTest(){
-        User user = userDAO.findByEmail("jenB@bob.com");
+        User user = userDAO.findByEmail("sujata@bob.com");
 
         user.setSpecialty("Perinatal/Maternal & Fetal Medicine");
-        Assertions.assertThat(userDAO.findById(2).getSpecialty().equals(user.getSpecialty()));
+        Assertions.assertThat(userDAO.findById(11).getSpecialty().equals(user.getSpecialty()));
     }
 
     //delete users
     @Test
-    @Order(4)
+    @Order(5)
     @Rollback(value = false)
     public void deleteUserTest(){
-        User user = userDAO.findByEmail("sujata@bob.com");
+        User user = userDAO.findById(11);
         userDAO.delete(user);
 
-        Optional<User> optionalUser = Optional.ofNullable((userDAO.findByEmail(user.getEmail())));
+        Optional<User> optionalUser = Optional.ofNullable((userDAO.findById(user.getId())));
 
         User tempUser = null;
         if(optionalUser == null){
