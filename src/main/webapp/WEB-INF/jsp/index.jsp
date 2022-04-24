@@ -82,7 +82,7 @@
                 <input type="hidden" name="convId">
                 <div class="card w-75">
                     <div class="card-body">
-                        <h5 class="card-title">${uc.subject}</h5>
+                        <h5 class="card-title uc" id="ucSubject">${uc.subject}</h5>
                         <p class="card-text"><fmt:formatDate type="date" value="${uc.create_date}"/></p>
                         <button type="submit" class="btn" id="sButton button-addon2">View</button>
                     </div>

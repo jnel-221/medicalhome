@@ -52,6 +52,9 @@
                         <textarea id="message" class="form-control" data-convId=${conversation.id} autocomplete="on"
                                   name="message"></textarea>
                         <button type="submit" class="btn" id="sButton button-addon2">Send</button>
+                        <c:forEach items="${bindingResult.getFieldErrors('message')}" var="error">
+                            <p id="acctTypeError" class="errorText">${error.getDefaultMessage()}</p>
+                        </c:forEach>
                     </form>
                 </div>
 

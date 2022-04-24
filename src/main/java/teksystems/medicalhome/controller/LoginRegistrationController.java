@@ -18,7 +18,12 @@ import teksystems.medicalhome.database.entity.UserRole;
 import teksystems.medicalhome.formbean.RegisterFormBean;
 
 import javax.validation.Valid;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -106,8 +111,31 @@ public class LoginRegistrationController {
 
         //send form to model
         response.addObject("form",form);
-
         response.setViewName("login/loginForm");
+
+        //generate registerlog
+        try {
+            boolean deletesuccess = (new File("registerlog.txt")).delete();
+            if (deletesuccess){
+                log.info("registerlog.txt deleted.");
+            }
+            BufferedWriter output = new BufferedWriter(new FileWriter("registerlog.txt", true));
+            List<User> allUsers = userDAO.findAll();
+            output.write("Last updated: "+new Date()+"\n");
+            allUsers.forEach((User)-> {
+                try {
+                    output.write("ID: "+User.getId()+" "+User.getFirstName()+" "+User.getLastName()+" "+User.getEmail()+" "+User.getAcctType()+" "+User.getSpecialty()+" "+User.getCreateDate()+"\n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            output.flush();
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.error("Register output has failed.");
+        }
+
         return response;
 
     }

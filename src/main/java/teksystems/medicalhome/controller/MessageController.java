@@ -6,6 +6,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.medicalhome.database.dao.ConversationDAO;
@@ -19,6 +21,7 @@ import teksystems.medicalhome.database.entity.UserConversation;
 import teksystems.medicalhome.formbean.MessageFormBean;
 
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +49,23 @@ public class MessageController {
     //Possible to-do: separate get from post, redirect to get after post complete; pass convID on hidden input field.
     //method loads chat view using conversation id as path variable
    @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form) {
+    public ModelAndView message(@PathVariable("id") Integer id, @Valid MessageFormBean form, BindingResult bindingResult) {
         ModelAndView response = new ModelAndView();
+       /* begin form validation logic */
+//       List<String> errorMessages = new ArrayList<>();
+//
+//       if(bindingResult.hasErrors()){
+//           for(ObjectError error : bindingResult.getAllErrors()){
+//               errorMessages.add(error.getDefaultMessage());
+//               // log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+//           }
+//           response.addObject("form",form);
+//           response.addObject("bindingResult", bindingResult);
+//
+//           response.setViewName("user/message");
+//           return response;
+//       }
+//       /* end form validation logic*/
 
         //get logged-in user information, to pull user id from logged-in user
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -89,6 +107,7 @@ public class MessageController {
         response.addObject("conversation", conversation); //add conversation information
         response.addObject("form", form);
         response.setViewName("user/message");
+
         return response;
     }
 }

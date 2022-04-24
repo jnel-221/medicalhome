@@ -92,7 +92,7 @@ public class ConversationController {
            if(userAcct.equals("patient")){
                usersMenu = userDAO.findByAcctType("provider");
            }else{
-               usersMenu = userDAO.findAll();
+               usersMenu = userDAO.myFindAll();
            }
            response.addObject("usersMenu", usersMenu);
            response.addObject("form",form);
