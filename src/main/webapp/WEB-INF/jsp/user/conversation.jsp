@@ -9,7 +9,6 @@
                 <div class="card-body">
                     <h2 class="text-center mt-4">New Conversation</h2>
                     <form action="/user/conversationSubmit" method="post">
-<%--                        <input type="hidden" name="id" value="${user.id}">--%>
                         <div class="mb-3 mx-3">
                             <label for="subject" class="form-label">Subject</label>
                             <input type="text" id="subject" class="form-control" placeholder="subject" name="subject"/>

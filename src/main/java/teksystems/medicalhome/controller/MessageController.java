@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -48,25 +49,9 @@ public class MessageController {
 
     //Possible to-do: separate get from post, redirect to get after post complete; pass convID on hidden input field.
     //method loads chat view using conversation id as path variable
-   @RequestMapping(value = "/user/message/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/user/message/{id}", method = RequestMethod.GET)
     public ModelAndView message(@PathVariable("id") Integer id, MessageFormBean form) {
         ModelAndView response = new ModelAndView();
-
-       /* begin form validation logic */
-//       List<String> errorMessages = new ArrayList<>();
-//
-//       if(bindingResult.hasErrors()){
-//           for(ObjectError error : bindingResult.getAllErrors()){
-//               errorMessages.add(error.getDefaultMessage());
-//               // log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
-//           }
-//           response.addObject("form",form);
-//           response.addObject("bindingResult", bindingResult);
-//
-//           response.setViewName("user/message");
-//           return response;
-//       }
-//       /* end form validation logic*/
 
         //get logged-in user information, to pull user id from logged-in user
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -91,13 +76,6 @@ public class MessageController {
             users.add(uc.getUser());
         });
 
-        //create Message instance, set values and save to db.
-        Message message = new Message();
-        message.setMessage(form.getMessage());
-        message.setConversation(conversation);
-        message.setUser(user);
-        messageDAO.save(message);
-
         //get all messages in conversation
         List<Message> messages = messageDAO.findMessageByConversation(conversation);
 
@@ -111,4 +89,45 @@ public class MessageController {
 
         return response;
     }
+
+    @RequestMapping(value = "/user/message/{id}", method = RequestMethod.POST)
+    public ModelAndView messageSubmit(@PathVariable("id") Integer id, @Valid MessageFormBean form, BindingResult bindingResult) {
+        ModelAndView response = new ModelAndView();
+
+        /* begin form validation logic */
+       List<String> errorMessages = new ArrayList<>();
+
+       if(bindingResult.hasErrors()){
+           for(ObjectError error : bindingResult.getAllErrors()){
+               errorMessages.add(error.getDefaultMessage());
+                log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+           }
+           response.addObject("form",form);
+           response.addObject("bindingResult", bindingResult);
+
+           response.setViewName("redirect:/user/message/"+id);
+           return response;
+       }
+       /* end form validation logic*/
+
+        //get logged-in user information, to pull user id from logged-in user
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userDAO.findByEmail(username);
+
+        //get conversation by id;
+        Conversation conversation = conversationDAO.findById(id);
+
+        //create Message instance, set values and save to db.
+        Message message = new Message();
+        message.setMessage(form.getMessage());
+        message.setConversation(conversation);
+        message.setUser(user);
+        messageDAO.save(message);
+
+        response.setViewName("redirect:/user/message/"+ conversation.getId());
+        return response;
+    }
 }
+
+

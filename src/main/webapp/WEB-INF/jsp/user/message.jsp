@@ -48,7 +48,7 @@
                 </ul>
                 <div id="type-box">
                     <form id="form" var="conversation" action="/user/message/${conversation.id}" method="post">
-                        <input type="hidden" name="convId" value=${conversation.id}>
+                        <input type="hidden" name="id" value=${conversation.id}>
                         <textarea id="message" class="form-control" data-convId=${conversation.id} autocomplete="on"
                                   name="message"></textarea>
                         <button type="submit" class="btn" id="sButton button-addon2">Send</button>

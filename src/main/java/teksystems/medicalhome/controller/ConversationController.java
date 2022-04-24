@@ -130,8 +130,8 @@ public class ConversationController {
 
        response.addObject("form", form);
 
-       //TO DO: re-route to message view after it's created
-       response.setViewName("redirect:/user/message/"+conversation.getId());//redirect to message page; make it its own request mapping
+       //redirect to message view
+       response.setViewName("redirect:/user/message/"+conversation.getId());
        return response;
    }
 

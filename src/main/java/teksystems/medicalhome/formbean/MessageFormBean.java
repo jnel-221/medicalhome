@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -13,6 +14,6 @@ public class MessageFormBean {
 
     private Integer id;
 
-
+    @NotBlank(message = "Please enter a message.")
     private String message;
 }

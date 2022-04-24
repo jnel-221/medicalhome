@@ -11,7 +11,7 @@
             <h1 style="font-size: 50px">Improving Outcomes for Moms and Babies</h1>
             <p>By providing centralized, coordinated, and accessible communication, throughout the pre-natal and peri-natal periods.</p>
             <a href="/login/login">
-                <button style="background-color: #f46d25">Login</button>
+                <button style="background-color: #f46d25">Start a Conversation</button>
             </a>
         </div>
     </div>
@@ -67,9 +67,9 @@
     <div class="hero-image">
         <div class="hero-text">
             <h1 style="font-size: 50px">Welcome ${user.firstName}</h1>
-            <p>Big dang heroes</p>
+            <p>To get started, create a conversation.  Your conversation history will be saved below.</p>
             <a href="/user/conversation">
-                <button style="background-color: #f46d25"> + New</button>
+                <button style="background-color: #f46d25">Create a Conversation</button>
             </a>
         </div>
     </div>
