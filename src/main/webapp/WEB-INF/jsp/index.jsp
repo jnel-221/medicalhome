@@ -26,8 +26,8 @@
                                                             alt="hands holding heart icon" class="mt-4"></div>
                 <div class="card-body">
                     <h5 class="card-title text-center">Centralized Care</h5>
-                    <h6 class="card-subtitle mb-2 text-muted text-center">One team. One portal. One Goal.</h6>
-                    <p class="card-text text-center">To ensure the best health outcomes for you and for your baby.</p>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">Have questions for more than one provider on your team?</h6>
+                    <p class="card-text text-center">Access the entire care team managing your case.</p>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">360&deg Care</h5>
                     <h6 class="card-subtitle mb-2 text-muted text-center">Postpartum questions? We're here for them.</h6>
-                    <p class="card-text text-center">Your care doesn't stop after baby arrives, you'll have support through the postpartum period</p>
+                    <p class="card-text text-center">Receive support through the postpartum period</p>
                 </div>
             </div>
         </div>
