@@ -8,12 +8,11 @@ Full stack Java application, utilizing an SQL database and Spring Boot for the b
 ## Table of Contents
 - [Features](#Features)
 - [Database](#Database)
-- [Technologies](#Technologies-and-Resources)
-- [Future Development](#Future-Develompent)
+- [Technologies and Resources](#Technologies-and-Resources)
+- [Future Development](#Future-Development)
 - [License](#License)
 
 
-[Back to Table of Contents](#table-of-contents)
 ## Features
 * Custom validation of user emails at the time of registration.
 * All users can create conversations with one or more users.
@@ -70,9 +69,10 @@ Questions? You can reach me by email at jennifer.nelson242@gmail.com. Feel free 
 
 [Back to Table of Contents](#table-of-contents)
 
-## License ![Badge](https://img.shields.io/badge/license-MIT-green.svg)
+## License 
 
-This project is licensed under the terms of the [MIT](./LICENSE) license.
+![Badge](https://img.shields.io/badge/license-MIT-green.svg)
+* This project is licensed under the terms of the [MIT](./LICENSE) license.
 
 [Back to Table of Contents](#table-of-contents)
 © 2022 GitHub, Inc.
