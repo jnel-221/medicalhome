@@ -1,0 +1,21 @@
+﻿first_name,last_name,email,img_url,acct_type,specialty,credential,password
+Tracy,Banks,tracy.banks@example.com,https://randomuser.me/api/portraits/med/women/36.jpg,provider,"Endocrinology, Diabetes & Metabolism",MD/DO,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Hazel,Alvarez,hazel.alvarez@example.com,https://randomuser.me/api/portraits/med/women/51.jpg,provider,Obstetrics & Gynecology,MD/DO,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Ron,Wright,ron.wright@example.com,https://randomuser.me/api/portraits/med/men/87.jpg,provider,Perinatal/Maternal & Fetal Medicine,MD/DO,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Elizabeth,Long,elizabeth.long@example.com,https://randomuser.me/api/portraits/med/women/14.jpg,provider,"Endocrinology, Diabetes & Metabolism",NP,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Zoey,Rose,zoey.rose@example.com,https://randomuser.me/api/portraits/med/women/85.jpg,provider,Obstetrics & Gynecology,NP,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Sarah,Meyer,sarah.meyer@example.com,https://randomuser.me/api/portraits/med/women/52.jpg,provider,Obstetrics & Gynecology,NP,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Rosa,Reyes,rosa.reyes@example.com,https://randomuser.me/api/portraits/med/women/61.jpg,provider,Perinatal/Maternal & Fetal Medicine,CNS,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Charles,Mitchell,charles.mitchell@example.com,https://randomuser.me/api/portraits/med/men/32.jpg,provider,Dietary & Nutritional Service,RD,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Jessica,Holmes,jessica.holmes@example.com,https://randomuser.me/api/portraits/med/women/83.jpg,provider,Dietary & Nutritional Service,RD,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Esther,Castillo,esther.castillo@example.com,https://randomuser.me/api/portraits/med/women/9.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Noelle,King,noelle.king@example.com,https://randomuser.me/api/portraits/med/women/64.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Leslie,Wheeler,leslie.wheeler@example.com,https://randomuser.me/api/portraits/med/women/13.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Kristina,Martinez,kristina.martinez@example.com,https://randomuser.me/api/portraits/med/women/21.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Lydia,Morales,lydia.morales@example.com,https://randomuser.me/api/portraits/med/women/18.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Holly,Williamson,holly.williamson@example.com,https://randomuser.me/api/portraits/med/women/54.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Priscilla,Rodriguez,priscilla.rodriguez@example.com,https://randomuser.me/api/portraits/med/women/55.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Myrtle,Russell,myrtle.russell@example.com,https://randomuser.me/api/portraits/med/women/53.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Aubree,Green,aubree.green@example.com,https://randomuser.me/api/portraits/med/women/36.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Jacqueline,Carr,jacqueline.carr@example.com,https://randomuser.me/api/portraits/med/women/85.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
+Penny,Gibson,penny.gibson@example.com,https://randomuser.me/api/portraits/med/women/47.jpg,patient,,,$2a$12$NzckMoMFC/24zmgrkHpDzeQRfGsYrWRgSCaDGM4w86BFCms9nV1tW
