@@ -30,6 +30,10 @@
                     </div>
                 </div>
                 </c:forEach>
+                <div class="d-grid gap-1">
+                    <a href="/home" class="btn msg-link" role="button">Return to Home</a>
+                    <a href="/user/conversation" class="btn msg-link" role="button">Start New Conversation</a>
+                </div>
             </div>
         </div>
     </section>

@@ -56,7 +56,6 @@
                         <div class="mb-3 reveal-if-active" id="provider_reg_field1">
                             <label class="form-check-label" for="specialty">Specialty</label>
                             <select class="form-select" aria-label="Default select example" name="specialty" id="specialty">
-                                <option selected></option>
                                 <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>
                                 <option value="Perinatal/Maternal & Fetal Medicine">Perinatal/Maternal & Fetal Medicine</option>
                                 <option value="Endocrinology, Diabetes & Metabolism">Endocrinology, Diabetes & Metabolism</option>
@@ -67,7 +66,6 @@
                         <div class="mb-3 reveal-if-active" id="provider_reg_field2">
                             <label class="form-check-label" for="credential">Credential</label>
                             <select class="form-select" aria-label="Default select example" name="credential" id="credential">
-                                <option selected></option>
                                 <option value="MD/DO">MD/DO</option>
                                 <option value="NP">NP</option>
                                 <option value="CNS">CNS</option>

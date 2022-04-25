@@ -11,14 +11,14 @@
             <h1 style="font-size: 50px">Improving Outcomes for Moms and Babies</h1>
             <p>By providing centralized, coordinated, and accessible communication, throughout the pre-natal and peri-natal periods.</p>
             <a href="/login/login">
-                <button style="background-color: #f46d25">Start a Conversation</button>
+                <button>Start a Conversation</button>
             </a>
         </div>
     </div>
     <!-- End hero section-->
     <%--    Begin main content --%>
     <div class="container mx-auto mt-5">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card landing-card" style="width: 18rem;">
                     <%--<a href="https://www.flaticon.com/free-icons/care" title="care icons">Care icons created by Freepik - Flaticon</a>--%>
@@ -69,7 +69,7 @@
             <h1 style="font-size: 50px">Welcome ${user.firstName}</h1>
             <p>To get started, create a conversation.  Your conversation history will be saved below.</p>
             <a href="/user/conversation">
-                <button style="background-color: #f46d25">Create a Conversation</button>
+                <button>Create a Conversation</button>
             </a>
         </div>
     </div>
@@ -80,11 +80,11 @@
         <c:forEach var="uc" items="${userConversations}">
             <form class="my-2" action="/user/message/${uc.id}" method="post">
                 <input type="hidden" name="convId">
-                <div class="card w-75">
+                <div class="card w-75" id="convCard">
                     <div class="card-body">
-                        <h5 class="card-title uc" id="ucSubject">${uc.subject}</h5>
-                        <p class="card-text"><fmt:formatDate type="date" value="${uc.create_date}"/></p>
-                        <button type="submit" class="btn" id="sButton button-addon2">View</button>
+                        <h3 class="card-title text-center" id="ucSubject">${uc.subject}</h3>
+                        <p class="card-text text-center"><fmt:formatDate type="date" value="${uc.create_date}"/></p>
+                        <button type="submit" class="btn float-end" id="sButton button-addon2">Continue Conversation</button>
                     </div>
                 </div>
             </form>

@@ -69,14 +69,14 @@
             display: inline-block;
             padding: .7rem 2.188rem;
             color: white;
-            background-color: #ddd;
+            background-color: #f46d25;
             text-align: center;
             cursor: pointer;
         }
 
         .hero-text button:hover {
             background-color: #4b4b55;
-            color: white;
+            color: #f46d25;
         }
     </style>
 </head>
