@@ -8,7 +8,7 @@ Full stack Java application, utilizing an SQL database and Spring Boot for the b
 ## Table of Contents
 - [Features](#Features)
 - [Database](#Database)
-- [Technologies](#Technologies/Resources)
+- [Technologies](#Technologies-and-Resources)
 - [Future Development](#Future-Develompent)
 - [License](#License)
 
@@ -30,10 +30,13 @@ Chat View:
 ![message room](pub/images/messageroom.png)
 
 [Back to Table of Contents](#table-of-contents)
+
 ## Database
 ERD Diagram of database:
 ![ERD Diagram](pub/images/ERD-Diagram.png)
-## Technologies/Resources
+[Back to Table of Contents](#table-of-contents)
+
+## Technologies and Resources
 * [SQL](https://www.techonthenet.com/sql/index.php) 
 * [Spring Boot](https://spring.io/projects/spring-boot)
 * [Spring Data](https://spring.io/projects/spring-data)
@@ -47,8 +50,6 @@ ERD Diagram of database:
 * [Coolers](https://coolors.co/)
 * [FlatIcon](https://www.flaticon.com/)
 * [FontAwesome](https://fontawesome.com/icons)
-
-
 
 [Back to Table of Contents](#table-of-contents)
 
